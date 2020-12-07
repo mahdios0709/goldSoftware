@@ -17,7 +17,7 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
     private static Stage stage; // **Declare static Stage**
-    private static final String macThisPc="F8-CA-B8-24-A1-5E";
+  //  private static final String macThisPc="F8-CA-B8-24-A1-5E";
 
 
 
@@ -40,8 +40,8 @@ public class Main extends Application {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-     //   if(getMac==new MacAddress()); return;
-   // new MacAddress(macThisPc);   
+ //       if(getMac!=new MacAddress()); return;
+ //   new MacAddress(macThisPc);
      launch(args);
 
     }

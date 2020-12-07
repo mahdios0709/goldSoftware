@@ -36,8 +36,7 @@ public class MainController implements Initializable {
     @FXML
     private BorderPane mainpane;
 
-    @FXML
-    private ToggleGroup groupe;
+
 
 
     @FXML
@@ -63,8 +62,10 @@ public class MainController implements Initializable {
     }
 
     @FXML
-    void home(ActionEvent event) {
-
+    void home(ActionEvent event) throws IOException{
+        FXLoader load = new FXLoader();
+        viewpane = load.getpage2("Main");
+        mainpane.setCenter(viewpane);
     }
 
     @FXML
@@ -75,7 +76,10 @@ public class MainController implements Initializable {
     }
 
     @FXML
-    void purchase(ActionEvent event) {
+    void purchase(ActionEvent event) throws IOException{
+        FXLoader load = new FXLoader();
+        viewpane = load.getpage2("purchase");
+        mainpane.setCenter(viewpane);
 
     }
 

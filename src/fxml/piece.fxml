@@ -2,19 +2,21 @@
 
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="608.0" prefWidth="1145.0" stylesheets="@../CSS/Style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="code.Home">
+<AnchorPane id="AnchorPane" prefHeight="608.0" prefWidth="1145.0" stylesheets="@../css/Style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="code.Home">
    <children>
-      <Pane layoutX="78.0" layoutY="35.0" prefHeight="81.0" prefWidth="1016.0" style="-fx-border-color: #b2b2b2;">
+      <Pane layoutX="78.0" layoutY="18.0" prefHeight="126.0" prefWidth="1016.0" style="-fx-border-color: #b2b2b2;">
          <children>
             <ChoiceBox layoutX="295.0" layoutY="11.0" prefHeight="25.0" prefWidth="189.0" />
             <ChoiceBox layoutX="14.0" layoutY="11.0" prefHeight="25.0" prefWidth="189.0" />
@@ -33,7 +35,7 @@
                   <Font size="14.0" />
                </font>
             </Text>
-            <Button layoutX="349.0" layoutY="45.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="115.0" style="-fx-background-color: wihte; -fx-border-color: #9999;" text="اظافة" textFill="#4f88f1">
+            <Button layoutX="349.0" layoutY="94.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="115.0" style="-fx-background-color: #fff; -fx-border-color: #9999;" text="اظافة" textFill="#4f88f1">
                <graphic>
                   <FontAwesomeIconView fill="#4f88f1" glyphName="PLUS_SQUARE" size="20" />
                </graphic>
@@ -44,7 +46,17 @@
             <Label layoutX="910.0" layoutY="16.0" text="رقم القطعة :" />
             <TextField layoutX="755.0" layoutY="16.0" />
             <TextField layoutX="551.0" layoutY="16.0" />
-            <Button layoutX="625.0" layoutY="51.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="115.0" style="-fx-background-color: wihte; -fx-border-color: #9999;" text="حذف" textFill="#4f88f1">
+            <ImageView fitHeight="136.0" fitWidth="293.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true" />
+            <CheckBox layoutX="910.0" layoutY="58.0" mnemonicParsing="false" text="مع الأحجار" />
+            <Text fill="#777777" layoutX="633.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ثمن">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Label layoutX="834.0" layoutY="53.0" text="نوع المجوهرة :" />
+            <TextField layoutX="679.0" layoutY="53.0" />
+            <TextField layoutX="475.0" layoutY="53.0" />
+            <Button layoutX="472.0" layoutY="98.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="115.0" style="-fx-background-color: #fff; -fx-border-color: #9999;" text="تعديل" textFill="#4f88f1">
                <graphic>
                   <FontAwesomeIconView fill="#4f88f1" glyphName="PLUS_SQUARE" size="20" />
                </graphic>
@@ -52,7 +64,7 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Button layoutX="481.0" layoutY="51.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="115.0" style="-fx-background-color: wihte; -fx-border-color: #9999;" text="تعديل" textFill="#4f88f1">
+            <Button layoutX="790.0" layoutY="97.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="115.0" style="-fx-background-color: #fff; -fx-border-color: #9999;" text="تحديث" textFill="#4f88f1">
                <graphic>
                   <FontAwesomeIconView fill="#4f88f1" glyphName="PLUS_SQUARE" size="20" />
                </graphic>
@@ -60,7 +72,7 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Button layoutX="764.0" layoutY="51.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="115.0" style="-fx-background-color: wihte; -fx-border-color: #9999;" text="تحديث" textFill="#4f88f1">
+            <Button layoutX="666.0" layoutY="92.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="115.0" style="-fx-background-color: #fff; -fx-border-color: #9999;" text="حذف" textFill="#4f88f1">
                <graphic>
                   <FontAwesomeIconView fill="#4f88f1" glyphName="PLUS_SQUARE" size="20" />
                </graphic>
@@ -68,9 +80,14 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
+            <Text fill="#777777" layoutX="390.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ادراج الصورة">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
          </children>
       </Pane>
-      <TableView layoutX="134.0" layoutY="194.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="379.0" prefWidth="963.0">
+      <TableView layoutX="134.0" layoutY="194.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="395.0" prefWidth="963.0">
         <columns>
           <TableColumn prefWidth="132.0" text="رقم القطعة" />
           <TableColumn prefWidth="172.0" text="النوع" />
