@@ -1,0 +1,122 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the temp late in the editor.
+*/
+/* 
+    Created on : Jul 2, 2020, 12:25:57 PM
+    Author     : AbdElFateh
+*/
+
+.mainClr{
+-fx-background-color: #879688;
+}
+.lbnfx{
+    -fx-background-color: #579688;
+    -fx-padding: 5 10; 
+    -fx-background-radius: 20px;
+    -fx-text-fill: #fff;
+}
+.btnfx{
+    -fx-background-color: #579688;
+    -fx-text-fill: #fff;
+}
+.btnfx:hover {
+    -fx-background-color: #383838;
+    -fx-scale-y: 1.1;
+    -fx-border-color: #579688;
+
+}  /*-fx-border-style: none none solid none ;
+     -fx-border-width: 1;
+ /** .btnfx:pressed {
+        -fx-scale-y: 0.9;
+        -fx-scale-x: 0.9;
+        -fx-background-color: #fff;        -fx-border-color: #579688;  -fx-background-color:#555; -fx-opacity: 0.8;
+}**/
+.btnfx:selected:focused ,.btnfx:selected:focused .icon,.btnfx:active,.btnfx:selected,.btnfx:selected .icon {
+    -fx-background-color: #fff;
+    -fx-text-fill:  #579688;
+    -fx-transition: background .2s ease-in-out;
+    -fx-border-style:  hidden  solid  hidden solid ;
+    -fx-border-color:  #fff  #fff #fff #555;
+    -fx-border-width: 5;
+    -fx-fill:#383838
+}
+.error{-fx-background-color: red;}
+
+.nrml{-fx-background-color: green;}
+
+.btns{ -fx-background-color: white;}
+
+.radioButton:selected{
+    -fx-text-fill:#579688;
+    -fx-transition: background .8s ease-in-out;
+    -fx-border-style:solid;
+    -fx-border-width:3;
+    -fx-border-color:  #fff   #579688  #fff #fff;}
+.radioButton1:selected {
+    -fx-text-fill:#5f071c;
+    -fx-transition: background .8s ease-in-out;
+    -fx-border-style:solid;
+    -fx-border-width:3;
+    -fx-border-color:  #fff   #5f071c  #fff #fff;}
+.radioButton2:selected {
+    -fx-text-fill:#404bbf;
+    -fx-transition: background .8s ease-in-out;
+    -fx-border-style:solid;
+    -fx-border-width:3;
+    -fx-border-color:  #fff   #404bbf  #fff #fff;
+}
+.tab-pane *.tab-header-background {
+    -fx-background-color:#fff;
+    -fx-border-style:   hidden  hidden solid  hidden  ;
+
+    -fx-opacity: 0.7;}
+/* -fx-background-radius: 0px 20px 20px 0;
+   -fx-border-width: 2;  -fx-border-style:   solid  solid solid  hidden ;
+}   /*  -fx-border-color:   #579688  ;*/
+.tab:selected,.titlelabel{
+
+    -fx-border-style:  solid    ;
+    -fx-border-color:   #555  ;
+    -fx-border-width: 1px 1px 3px 1px;
+    -fx-text-base-color:#555;
+    -fx-font-size:13pt;
+    -fx-background-color: #fff;
+}
+.tab{
+    -fx-background-color:#579688;
+    -fx-text-base-color:#fff;
+    -fx-font-size:12pt; 
+    -fx-border-radius: 2px 2px 0 0;
+}
+.missing{
+    -fx-background-color:#fbd0da;
+    -fx-background-radius:3px;
+    -fx-fill:#5f071c;
+}
+.panePreview{
+    -fx-border-color:ddd;
+    -fx-border-radius:15px;
+}
+.paneMain{
+    -fx-background-color: #E9EBEE;
+    -fx-background-radius:20px;
+}
+.iconInComplet{
+    -fx-font-size:20px;
+    -fx-fill:#ffc168;
+}
+.iconComplet{
+    -fx-font-size:20px;
+    -fx-fill:#2dde98;
+}
+.iconNulle{
+    -fx-font-size:20px;
+    -fx-fill:#ff6c5f;
+}
+.total{
+    -fx-border-style:  solid hidden  hidden   hidden  ; ;
+    -fx-border-color:   #999  ;
+    -fx-border-width: 1px ;
+}

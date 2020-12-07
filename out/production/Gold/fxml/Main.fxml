@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="608.0" prefWidth="1145.0" stylesheets="@../CSS/Style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="code.Home">
+   <children>
+      <Pane layoutX="251.0" prefHeight="153.0" prefWidth="880.0">
+         <children>
+            <Label alignment="CENTER" layoutX="290.0" layoutY="8.0" minHeight="40.0" prefWidth="270.0" style="-fx-background-color: linear-gradient(to left, #8de9d5, #32c4c0); -fx-background-radius: 10px 10px 0 0;" text="فوائد" textFill="WHITE">
+               <padding>
+                  <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+               </padding>
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="290.0" layoutY="48.0" minHeight="70.0" prefHeight="90.0" prefWidth="270.0" style="-fx-background-color: #fff; -fx-background-radius: 0 0 10px 10px; -fx-border-radius: 0 0 10px 10px; -fx-border-color: #999;" textFill="#ff0808">
+               <padding>
+                  <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+               </padding>
+               <font>
+                  <Font size="24.0" />
+               </font>
+               <effect>
+                  <DropShadow color="#bbbbbb" height="20.0" offsetY="1.0" radius="9.5" width="20.0" />
+               </effect>
+            </Label>
+            <MaterialDesignIconView fill="WHITE" glyphName="CREDIT_CARD" layoutX="321.0" layoutY="36.0" size="25" styleClass="icon" x="5.0" />
+         </children>
+      </Pane>
+      <Pane layoutX="5.0" layoutY="102.0" prefHeight="501.0" prefWidth="872.0" stylesheets="@../CSS/Style.css">
+         <children>
+            <BarChart layoutX="14.0" layoutY="290.0" prefHeight="197.0" prefWidth="323.0">
+              <xAxis>
+                <CategoryAxis side="BOTTOM" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis side="LEFT" />
+              </yAxis>
+            </BarChart>
+            <BarChart layoutX="23.0" layoutY="54.0" prefHeight="197.0" prefWidth="323.0">
+               <xAxis>
+                  <CategoryAxis side="BOTTOM" />
+               </xAxis>
+               <yAxis>
+                  <NumberAxis side="LEFT" />
+               </yAxis>
+            </BarChart>
+            <BarChart layoutX="402.0" layoutY="54.0" prefHeight="197.0" prefWidth="323.0">
+               <xAxis>
+                  <CategoryAxis side="BOTTOM" />
+               </xAxis>
+               <yAxis>
+                  <NumberAxis side="LEFT" />
+               </yAxis>
+            </BarChart>
+            <BarChart layoutX="388.0" layoutY="290.0" prefHeight="197.0" prefWidth="323.0">
+               <xAxis>
+                  <CategoryAxis side="BOTTOM" />
+               </xAxis>
+               <yAxis>
+                  <NumberAxis side="LEFT" />
+               </yAxis>
+            </BarChart>
+         </children>
+      </Pane>
+      <Pane layoutX="877.0" layoutY="138.0" prefHeight="470.0" prefWidth="241.0">
+         <children>
+            <ListView disable="true" layoutX="8.0" layoutY="40.0" pickOnBounds="false" prefHeight="190.0" prefWidth="227.0">
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding></ListView>
+            <Label alignment="CENTER" layoutX="8.0" minHeight="40.0" prefHeight="40.0" prefWidth="227.0" style="-fx-background-color: linear-gradient(to top, #8de9d5, #32c4c0); -fx-background-radius: 10px 10px 0 0;" textFill="WHITE">
+               <padding>
+                  <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+               </padding>
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" disable="true" layoutX="6.0" layoutY="339.0" minHeight="35.0" prefHeight="27.0" prefWidth="227.0" style="-fx-background-color: #a5a5a5; -fx-border-color: #999;" text="عدد القطع" textFill="WHITE">
+               <padding>
+                  <Insets left="10.0" right="10.0" />
+               </padding>
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <VBox layoutX="20.0" layoutY="368.0" prefHeight="98.0" prefWidth="117.0">
+               <children>
+                  <Text fill="#9a9393" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="RIGHT" wrappingWidth="102.13671875">
+                     <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="1.0" top="10.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Text>
+                  <Text fill="#9a9393" layoutX="10.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="RIGHT" wrappingWidth="105.13671875">
+                     <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="1.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Text>
+                  <Text fill="#9a9393" layoutX="20.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="total" wrappingWidth="102.13671875">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" />
+                     </VBox.margin>
+                  </Text>
+               </children>
+            </VBox>
+            <VBox layoutX="130.0" layoutY="370.0" prefHeight="70.0" prefWidth="93.0">
+               <children>
+                  <Text fill="#9a9393" strokeType="OUTSIDE" strokeWidth="0.0" text="القطع الحالية" textAlignment="RIGHT" wrappingWidth="81.13671875">
+                     <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Text>
+                  <Text fill="#9a9393" layoutX="10.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="المباعة" textAlignment="RIGHT" wrappingWidth="77.13671875">
+                     <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Text>
+               </children>
+            </VBox>
+            <Text fx:id="txtTotalRec" fill="#9a9393" layoutX="9.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="total" textAlignment="CENTER" wrappingWidth="226.99999868869781">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Text>
+            <Label alignment="CENTER" layoutX="7.0" layoutY="239.0" minHeight="35.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="27.0" prefWidth="227.0" style="-fx-background-color: linear-gradient(to right, #8de9d5, #32c4c0); -fx-background-radius: 10px 10px 0 0;" text="عدد الزبائن" textFill="WHITE">
+               <padding>
+                  <Insets bottom="3.0" left="10.0" right="10.0" top="3.0" />
+               </padding>
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <effect>
+                  <DropShadow blurType="ONE_PASS_BOX" color="#a4a4a4" height="0.0" offsetY="1.0" radius="3.95" width="17.8" />
+               </effect>
+            </Label>
+            <Label alignment="TOP_CENTER" layoutX="7.0" layoutY="274.0" minHeight="54.0" opacity="0.95" prefHeight="54.0" prefWidth="227.0" style="-fx-background-color: #fff;" text="0.00" textFill="#888888">
+               <padding>
+                  <Insets bottom="7.0" left="10.0" right="10.0" top="7.0" />
+               </padding>
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <effect>
+                  <DropShadow color="#bbbbbb" height="4.0" offsetY="1.0" radius="1.75" width="5.0" />
+               </effect>
+            </Label>
+            <Label alignment="CENTER_RIGHT" layoutX="117.0" layoutY="302.0" prefHeight="27.0" prefWidth="103.0" text="0">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <padding>
+                  <Insets right="10.0" top="5.0" />
+               </padding>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop color="#32c4c0" />
+                        <Stop color="#8de9d5" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Label>
+            <Label contentDisplay="CENTER" layoutX="13.0" layoutY="284.0" opacity="0.33" style="-fx-border-color: #888;" text="DA" textFill="#888888">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <padding>
+                  <Insets bottom="1.0" left="3.0" right="3.0" top="1.0" />
+               </padding>
+            </Label>
+         </children></Pane>
+      <Label layoutX="14.0" layoutY="40.0" prefHeight="40.0" prefWidth="227.0" text="GOLD SERVICES" textFill="#579688" wrapText="true">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <padding>
+            <Insets left="20.0" right="20.0" />
+         </padding>
+      </Label>
+      <Label layoutX="14.0" layoutY="13.0" prefHeight="40.0" prefWidth="183.0" text="APPLICATION" textFill="#579688" wrapText="true">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <padding>
+            <Insets left="20.0" right="20.0" />
+         </padding>
+      </Label>
+   </children>  
+</AnchorPane>

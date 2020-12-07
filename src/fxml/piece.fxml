@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="608.0" prefWidth="1145.0" stylesheets="@../CSS/Style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="code.Home">
+   <children>
+      <Pane layoutX="78.0" layoutY="35.0" prefHeight="81.0" prefWidth="1016.0" style="-fx-border-color: #b2b2b2;">
+         <children>
+            <ChoiceBox layoutX="295.0" layoutY="11.0" prefHeight="25.0" prefWidth="189.0" />
+            <ChoiceBox layoutX="14.0" layoutY="11.0" prefHeight="25.0" prefWidth="189.0" />
+            <Text fill="#777777" layoutX="709.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="الوزن">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Text fill="#777777" layoutX="501.0" layoutY="24.892578125" strokeType="OUTSIDE" strokeWidth="0.0" text="العيار :">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Text fill="#777777" layoutX="213.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="الصنف">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Button layoutX="349.0" layoutY="45.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="115.0" style="-fx-background-color: wihte; -fx-border-color: #9999;" text="اظافة" textFill="#4f88f1">
+               <graphic>
+                  <FontAwesomeIconView fill="#4f88f1" glyphName="PLUS_SQUARE" size="20" />
+               </graphic>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Label layoutX="910.0" layoutY="16.0" text="رقم القطعة :" />
+            <TextField layoutX="755.0" layoutY="16.0" />
+            <TextField layoutX="551.0" layoutY="16.0" />
+            <Button layoutX="625.0" layoutY="51.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="115.0" style="-fx-background-color: wihte; -fx-border-color: #9999;" text="حذف" textFill="#4f88f1">
+               <graphic>
+                  <FontAwesomeIconView fill="#4f88f1" glyphName="PLUS_SQUARE" size="20" />
+               </graphic>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button layoutX="481.0" layoutY="51.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="115.0" style="-fx-background-color: wihte; -fx-border-color: #9999;" text="تعديل" textFill="#4f88f1">
+               <graphic>
+                  <FontAwesomeIconView fill="#4f88f1" glyphName="PLUS_SQUARE" size="20" />
+               </graphic>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button layoutX="764.0" layoutY="51.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="115.0" style="-fx-background-color: wihte; -fx-border-color: #9999;" text="تحديث" textFill="#4f88f1">
+               <graphic>
+                  <FontAwesomeIconView fill="#4f88f1" glyphName="PLUS_SQUARE" size="20" />
+               </graphic>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+      <TableView layoutX="134.0" layoutY="194.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="379.0" prefWidth="963.0">
+        <columns>
+          <TableColumn prefWidth="132.0" text="رقم القطعة" />
+          <TableColumn prefWidth="172.0" text="النوع" />
+            <TableColumn prefWidth="172.0" text="العيار" />
+            <TableColumn prefWidth="172.0" text="الوزن" />
+            <TableColumn prefWidth="172.0" text="التاريخ" />
+        </columns>
+      </TableView>
+   </children>  
+</AnchorPane>

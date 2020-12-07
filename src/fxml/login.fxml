@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Arc?>
+<?import javafx.scene.text.Font?>
+
+<Pane prefHeight="358.0" prefWidth="767.0" stylesheets="@../css/Style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="code.Controller">
+   <children>
+        <AnchorPane prefHeight="360.0" prefWidth="368.0" style="-fx-background-color: #fff;">
+            <children>
+                <TextField fx:id="userLogin" layoutX="70.0" layoutY="98.0" prefHeight="35.0" prefWidth="265.0" promptText="Nom">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </TextField>
+                <PasswordField id="text-login" fx:id="passLogin" layoutX="70.0" layoutY="169.0" prefHeight="35.0" prefWidth="265.0" promptText="Password">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </PasswordField>
+                <Button layoutX="125.0" layoutY="250.0" mnemonicParsing="false" onAction="#login" prefHeight="35.0" prefWidth="130.0" style="-fx-background-color: #579688; -fx-background-radius: 20px;" styleClass="lbnfx" text="Connecte" textFill="WHITE" textOverrun="CLIP">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <effect>
+                  <DropShadow blurType="GAUSSIAN" color="#363434" height="25.35" offsetY="3.0" radius="5.8375" width="0.0" />
+               </effect>
+            </Button>
+                <Label fx:id="eText" layoutX="70.0" layoutY="224.0" prefHeight="20.0" prefWidth="240.0" textAlignment="CENTER" textFill="#e81123">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <FontAwesomeIconView fill="#d7d7d7" glyphName="LOCK" layoutX="310.0" layoutY="194.0" size="22" />
+            <FontAwesomeIconView fill="#d7d7d7" glyphName="USER" layoutX="309.0" layoutY="123.0" size="22" wrappingWidth="17.285715103149414" />
+            <Label alignment="CENTER_RIGHT" layoutX="101.0" layoutY="29.0" prefHeight="28.0" prefWidth="117.0" style="-fx-padding: 3px 7px;" styleClass="btnfx" text="تسير المحل" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="219.0" layoutY="29.0" prefHeight="28.0" prefWidth="61.0" style="-fx-border-color: #579688; -fx-padding: 3px 7px;" text="تطبيق" textFill="#579688">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            </children>
+        </AnchorPane>
+      <AnchorPane fx:id="AnchorPane" layoutX="369.0" prefHeight="360.0" prefWidth="398.0" style="-fx-background-color: linear-gradient(to bottom left, #58af9b 0%, #148653 100%);;">
+          <children>
+            <Label alignment="CENTER" layoutX="59.0" layoutY="107.0" prefHeight="35.0" prefWidth="281.0" text="برنامج مجوهراتي" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <FontAwesomeIconView fill="WHITE" glyphName="USERS" layoutX="167.0" layoutY="237.0" opacity="0.73" size="40" />
+            <FontAwesomeIconView fill="WHITE" glyphName="PLAY" layoutX="6.0" layoutY="316.0" opacity="0.09" size="180" wrappingWidth="137.00000520050526" />
+            <Arc fill="WHITE" layoutX="332.0" layoutY="78.0" length="270.0" opacity="0.13" radiusX="93.0" radiusY="88.0" smooth="false" startAngle="45.0" strokeType="INSIDE" />
+          </children>
+         <effect>
+            <Glow />
+         </effect>
+      </AnchorPane>
+   </children>
+</Pane>
