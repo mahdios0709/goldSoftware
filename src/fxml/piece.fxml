@@ -73,12 +73,12 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <Button contentDisplay="RIGHT" layoutX="479.0" layoutY="120.0" mnemonicParsing="false" onAction="#showAddGoldType" prefHeight="25.0" prefWidth="28.0" style="-fx-background-color: #fff; -fx-border-color: #4f88f1;" textFill="#4f88f1">
+            <Button contentDisplay="RIGHT" layoutX="479.0" layoutY="120.0" mnemonicParsing="false" onAction="#showAddGoldType" prefHeight="25.0" prefWidth="28.0" style="-fx-background-color: #fff; -fx-border-color: #777;" textFill="#777777">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
                <graphic>
-                  <FontAwesomeIconView fill="#4f88f1" glyphName="PLUS_SQUARE" size="16" />
+                  <FontAwesomeIconView fill="#777777" glyphName="EDIT" size="16" />
                </graphic>
             </Button>
             <Button contentDisplay="RIGHT" layoutX="159.0" layoutY="119.0" mnemonicParsing="false" onAction="#refresh" style="-fx-background-color: #fff; -fx-border-color: #c2be6a;" textFill="#c2be6a">
@@ -89,9 +89,9 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Button contentDisplay="RIGHT" layoutX="301.0" layoutY="119.0" mnemonicParsing="false" onAction="#deletePiece" prefHeight="31.0" prefWidth="29.0" style="-fx-background-color: #fff; -fx-border-color: #f0534f;" textFill="#f0534f">
+            <Button contentDisplay="RIGHT" layoutX="301.0" layoutY="119.0" mnemonicParsing="false" onAction="#deletePiece" prefHeight="31.0" prefWidth="29.0" style="-fx-background-color: #fff; -fx-border-color: #f87d7a;" styleClass="error" textFill="#f87d7a">
                <graphic>
-                  <FontAwesomeIconView fill="#f0534f" glyphName="TRASH" size="20" />
+                  <FontAwesomeIconView fill="#f87d7a" glyphName="TRASH" size="20" />
                </graphic>
                <font>
                   <Font name="System Bold" size="12.0" />
@@ -121,8 +121,8 @@
                   <FontAwesomeIconView fill="#979797" glyphName="UPLOAD" size="40" />
                </graphic>
             </Button>
-            <ComboBox fx:id="karaNumber" layoutX="478.0" layoutY="84.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="28.0" prefWidth="201.0" promptText="نوع العيار" />
-            <ComboBox fx:id="goldType" layoutX="515.0" layoutY="119.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="28.0" prefWidth="165.0" promptText="الصنف" />
+            <ComboBox fx:id="karaNumber" layoutX="478.0" layoutY="84.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="28.0" prefWidth="201.0" promptText="نوع العيار" style="-fx-background-color: #fff; -fx-border-color: #777;" />
+            <ComboBox fx:id="goldType" layoutX="515.0" layoutY="119.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="28.0" prefWidth="165.0" promptText="الصنف" style="-fx-background-color: #fff; -fx-border-color: #777;" />
          </children>
       </Pane>
       <TableView fx:id="pieceTableView" layoutX="26.0" layoutY="207.0" nodeOrientation="LEFT_TO_RIGHT" onMouseClicked="#pieceSelected" prefHeight="366.0" prefWidth="1064.0" AnchorPane.leftAnchor="26.0">
@@ -162,7 +162,7 @@
             </Tab>
         </tabs>
       </TabPane>
-      <AnchorPane fx:id="paneAddGoldType" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: rgba(0,0,0,.2);" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane fx:id="paneAddGoldType" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: rgba(0,0,0,.2);" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <AnchorPane id="AnchorPane" layoutX="324.0" layoutY="89.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="454.0" prefWidth="496.0" style="-fx-background-color: #fff;">
                <children>
