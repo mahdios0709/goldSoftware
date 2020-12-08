@@ -32,19 +32,17 @@ public class Controller {
     @FXML
     private Label eText;
 
-    private static String UserName;
+    static   String UserName;
 
 
     @FXML
-     void login(ActionEvent event) throws IOException {
+     void login(ActionEvent event)  {
         toLogin(event);
 
     }
 
     private void toLogin(ActionEvent event) {
-        //  openwin(event);
 
-        //To change body of generated methods, choose Tools | Templates.
         String pass;
         UserName = userLogin.getText();
         pass = passLogin.getText();
@@ -78,9 +76,7 @@ public class Controller {
         }
     }
 
-    protected String getUserName() {
-        return UserName;
-    }
+
 
 
 
