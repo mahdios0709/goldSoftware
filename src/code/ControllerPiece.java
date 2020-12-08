@@ -13,6 +13,7 @@ import javafx.scene.image.ImageView;
 
 import javafx.event.ActionEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 
 import javax.imageio.ImageIO;
@@ -50,6 +51,12 @@ public class ControllerPiece implements Initializable {
 
     @FXML
     private TextField stoneName;
+
+    @FXML
+    private AnchorPane stonePane;
+
+    @FXML
+    private AnchorPane paneAddGoldType;
 
     @FXML
     private TextField stonePrice;
@@ -188,11 +195,13 @@ public class ControllerPiece implements Initializable {
     @FXML
     void checkWithStone(ActionEvent event) {
         if (withStone.isSelected()){
-            stoneName.setDisable(false);
-            stonePrice.setDisable(false);
+            stonePane.setDisable(false);
+            //stoneName.setDisable(false);
+          //  stonePrice.setDisable(false);
         }else{
-            stoneName.setDisable(true);
-            stonePrice.setDisable(true);
+            stonePane.setDisable(true);
+         //   stoneName.setDisable(true);
+         //   stonePrice.setDisable(true);
         }
     }
 
@@ -432,7 +441,12 @@ public class ControllerPiece implements Initializable {
 
     @FXML
     void showAddGoldType(ActionEvent event) {
+        paneAddGoldType.setVisible(true);
+    }
 
+    @FXML
+    void hide(ActionEvent event) {
+        paneAddGoldType.setVisible(false);
     }
 
     @FXML
@@ -480,5 +494,17 @@ public class ControllerPiece implements Initializable {
             throwables.printStackTrace();
         }
 
+    }
+
+    public void vid(ActionEvent actionEvent) {
+    }
+
+    public void supp(ActionEvent actionEvent) {
+    }
+
+    public void add(ActionEvent actionEvent) {
+    }
+
+    public void selected(MouseEvent mouseEvent) {
     }
 }
