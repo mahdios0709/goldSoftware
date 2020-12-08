@@ -12,8 +12,6 @@ import javafx.stage.StageStyle;
 
 public class DialogOption {
 
-
-
     protected boolean DialogOptionCONFIRMATION(String ContentText, String Title) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.initStyle(StageStyle.UTILITY);

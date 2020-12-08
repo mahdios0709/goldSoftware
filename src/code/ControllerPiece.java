@@ -34,6 +34,7 @@ public class ControllerPiece implements Initializable {
 
     ObservableList<String> karaId= FXCollections.observableArrayList("24","22","18","14","10","9");
     ObservableList piecesTable=FXCollections.observableArrayList();
+    ObservableList goldTypesTable=FXCollections.observableArrayList();
     @FXML
     private ComboBox<String> karaNumber;
 
@@ -477,6 +478,29 @@ public class ControllerPiece implements Initializable {
         stoneNameTable.setCellValueFactory(new PropertyValueFactory<>("stoneName"));
         stonePriceTable.setCellValueFactory(new PropertyValueFactory<>("stonePrice"));
         pieceDateTable.setCellValueFactory(new PropertyValueFactory<>("date"));
+        pieceTableView.setItems(piecesTable);
+
+        addToTable2();
+        val.setCellValueFactory(new PropertyValueFactory<>("goldType"));
+        mot.setCellValueFactory(new PropertyValueFactory<>("abGoldType"));
+        table.setItems(goldTypesTable);
+
+        fillCombo();
+    }
+
+    private void fillCombo() {
+        try {
+            con = Connecter.getConnection();
+            pst = con.prepareStatement("SELECT * FROM `goldtype`");
+            rs= pst.executeQuery();
+            while(rs.next()){
+                karaNumber.getItems().add(rs.getString("goldType"));
+            }
+            pst.close();
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
     }
 
     private void addToTable() {
@@ -496,15 +520,106 @@ public class ControllerPiece implements Initializable {
 
     }
 
+    @FXML
+    private TableView<GoldTypes> table;
+
+    @FXML
+    private TableColumn<GoldTypes, String> mot;
+
+    @FXML
+    private TableColumn<GoldTypes, String> val;
+
+    @FXML
+    private TextField objF;
+
+    @FXML
+    private TextField valeurF;
+
+    @FXML
+
     public void vid(ActionEvent actionEvent) {
+        objF.setText(null);
+        valeurF.setText(null);
     }
 
     public void supp(ActionEvent actionEvent) {
+        int index=table.getSelectionModel().getSelectedIndex();
+        if (index>=0){
+            int idDelete=table.getItems().get(index).getId();
+            if (idDelete>0){
+                try {
+                    con = Connecter.getConnection();
+                    pst = con.prepareStatement("DELETE FROM `goldtype` WHERE `id`=?");
+                    pst.setInt(1,idDelete);
+                    pst.execute();
+                    pst.close();
+                } catch (SQLException throwables) {
+                    throwables.printStackTrace();
+                }
+                idDelete=0;
+                addToTable2();
+                fillCombo();
+
+            }
+        }
     }
+
 
     public void add(ActionEvent actionEvent) {
+        int dejaExist=0;
+        int size=0;
+        try {
+            con = Connecter.getConnection();
+            pst = con.prepareStatement("SELECT * FROM `goldtype` WHERE `goldType`=? OR `abGoldType`=?");
+            pst.setString(1,valeurF.getText());
+            pst.setString(2,objF.getText());
+            rs=pst.executeQuery();
+            while(rs.next()){
+                size++;
+            }
+            if (size>0){
+                dejaExist=1;
+            }
+            pst.close();
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        if (valeurF.getText().isEmpty()||objF.getText().isEmpty()){
+            // messege d'erreur please fill the gaps
+        }else if(dejaExist==1){
+            // messege d'erreur deja existe dans la base de donné
+        }else{
+            try{
+                con = Connecter.getConnection();
+                pst = con.prepareStatement("INSERT INTO `goldtype`(`goldType`, `abGoldType`) VALUES (?,?");
+                pst.setString(1,valeurF.getText());
+                pst.setString(2,objF.getText());
+                pst.execute();
+                pst.close();
+            }catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+        }
+        addToTable2();
+        fillCombo();
+
+
     }
 
-    public void selected(MouseEvent mouseEvent) {
+    private void addToTable2() {
+        goldTypesTable.clear();
+        try {
+            con = Connecter.getConnection();
+            pst = con.prepareStatement("SELECT * FROM `goldtype`");
+            rs= pst.executeQuery();
+            while(rs.next()){
+                goldTypesTable.add(new GoldTypes(rs.getInt("id"),rs.getString("goldType"),rs.getString("abGoldType")));
+            }
+            pst.close();
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
     }
 }

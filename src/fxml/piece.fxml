@@ -162,37 +162,40 @@
             </Tab>
         </tabs>
       </TabPane>
-      <AnchorPane fx:id="paneAddGoldType" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: rgba(0,0,0,.2);" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane fx:id="paneAddGoldType" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: rgba(0,0,0,.2);" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <AnchorPane id="AnchorPane" layoutX="324.0" layoutY="89.0" prefHeight="454.0" prefWidth="496.0" style="-fx-background-color: #fff;">
+            <AnchorPane id="AnchorPane" layoutX="324.0" layoutY="89.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="454.0" prefWidth="496.0" style="-fx-background-color: #fff;">
                <children>
                   <Label layoutY="14.0" prefHeight="28.0" prefWidth="200.0" style="-fx-background-color: #579688; -fx-padding: 3px 15px;" text="اصناف" textAlignment="CENTER" textFill="WHITE">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <TableView fx:id="table" layoutX="47.0" layoutY="142.0" onMouseClicked="#selected" prefHeight="285.0" prefWidth="336.0">
+                  <TableView fx:id="table" layoutX="20.0" layoutY="146.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="285.0" prefWidth="454.0">
                      <columns>
-                        <TableColumn fx:id="mot" prefWidth="167.0" text="اسم مختصر" />
-                        <TableColumn fx:id="val" prefWidth="168.0" text="اسم كامل" />
+                        <TableColumn fx:id="val" prefWidth="313.0" text="اسم كامل" />
+                        <TableColumn fx:id="mot" prefWidth="139.0" text="اسم مختصر" />
                      </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
                   </TableView>
-                  <TextField fx:id="objF" alignment="CENTER" layoutX="45.0" layoutY="69.0" prefHeight="31.0" prefWidth="106.0" promptText="اسم مختصر" style="-fx-background-color: #888; -fx-text-fill: #fff;">
+                  <TextField fx:id="objF" alignment="CENTER" layoutX="20.0" layoutY="69.0" prefHeight="31.0" prefWidth="90.0" promptText="اسم مختصر" style="-fx-background-color: #888; -fx-text-fill: #fff;">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="valeurF" alignment="CENTER_RIGHT" layoutX="153.0" layoutY="69.0" prefHeight="31.0" prefWidth="224.0" promptText="اسم كامل">
+                  <TextField fx:id="valeurF" alignment="CENTER_RIGHT" layoutX="115.0" layoutY="69.0" prefHeight="31.0" prefWidth="237.0" promptText="اسم كامل">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </TextField>
-                  <Button layoutX="397.0" layoutY="69.0" mnemonicParsing="false" onAction="#add" prefHeight="25.0" prefWidth="100.0" style="-fx-background-color: #579688;" text="Ok" textFill="WHITE">
+                  <Button layoutX="372.0" layoutY="69.0" mnemonicParsing="false" onAction="#add" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #579688;" text="إظافة" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Button>
-                  <Button layoutX="460.0" layoutY="105.0" mnemonicParsing="false" onAction="#supp" style="-fx-background-color: #fff; -fx-border-color: c37474;" textFill="#c37474">
+                  <Button layoutX="439.0" layoutY="111.0" mnemonicParsing="false" onAction="#supp" style="-fx-background-color: #fff; -fx-border-color: c37474;" textFill="#c37474">
                      <padding>
                         <Insets bottom="3.0" left="8.0" right="8.0" top="3.0" />
                      </padding>
@@ -200,7 +203,7 @@
                         <FontAwesomeIconView fill="#e86666" glyphName="TRASH_ALT" size="18" />
                      </graphic>
                   </Button>
-                  <Button layoutX="400.0" layoutY="105.0" mnemonicParsing="false" onAction="#vid" style="-fx-background-color: #fff; -fx-border-color: #99aeaa;" textFill="#99aeaa">
+                  <Button layoutX="373.0" layoutY="111.0" mnemonicParsing="false" onAction="#vid" style="-fx-background-color: #fff; -fx-border-color: #99aeaa;" textFill="#99aeaa">
                      <padding>
                         <Insets bottom="3.0" left="8.0" right="8.0" top="3.0" />
                      </padding>
