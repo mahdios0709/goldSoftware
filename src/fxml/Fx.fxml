@@ -29,17 +29,14 @@
                      <padding>
                         <Insets bottom="10.0" left="10.0" right="40.0" top="10.0" />
                      </padding>
-                     <toggleGroup>
-                        <ToggleGroup fx:id="groupe" />
-                     </toggleGroup>
                      <graphic>
                         <MaterialDesignIconView fill="WHITE" glyphName="VIEW_DASHBOARD" size="32" styleClass="icon" />
                      </graphic>
-                  </ToggleButton>
-                  <ToggleButton alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutY="202.0" mnemonicParsing="false" onAction="#purchase" prefHeight="30.0" prefWidth="200.0" styleClass="btnfx" text="مبيعات">
                      <toggleGroup>
                         <ToggleGroup fx:id="groupe" />
                      </toggleGroup>
+                  </ToggleButton>
+                  <ToggleButton alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutY="202.0" mnemonicParsing="false" onAction="#purchase" prefHeight="30.0" prefWidth="200.0" styleClass="btnfx" text="مبيعات" toggleGroup="$groupe">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
@@ -50,10 +47,7 @@
                         <Insets bottom="10.0" left="10.0" right="40.0" top="10.0" />
                      </padding>
                   </ToggleButton>
-                  <ToggleButton alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutY="282.0" mnemonicParsing="false" onAction="#pieces" prefHeight="30.0" prefWidth="200.0" styleClass="btnfx" text="قطـع">
-                     <toggleGroup>
-                        <ToggleGroup fx:id="groupe" />
-                     </toggleGroup>
+                  <ToggleButton alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutY="282.0" mnemonicParsing="false" onAction="#pieces" prefHeight="30.0" prefWidth="200.0" styleClass="btnfx" text="قطـع" toggleGroup="$groupe">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
@@ -64,10 +58,7 @@
                         <Insets bottom="10.0" left="10.0" right="40.0" top="10.0" />
                      </padding>
                   </ToggleButton>
-                  <ToggleButton alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="2.0" layoutY="362.0" mnemonicParsing="false" onAction="#goldprice" prefHeight="30.0" prefWidth="200.0" styleClass="btnfx" text="احصائيات">
-                     <toggleGroup>
-                        <ToggleGroup fx:id="groupe" />
-                     </toggleGroup>
+                  <ToggleButton alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="2.0" layoutY="362.0" mnemonicParsing="false" onAction="#goldprice" prefHeight="30.0" prefWidth="200.0" styleClass="btnfx" text="احصائيات" toggleGroup="$groupe">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
@@ -114,9 +105,9 @@
                </children>
             </AnchorPane>
          </right></BorderPane>
-      <Pane layoutX="1153.0" layoutY="28.0" prefHeight="40.0" prefWidth="214.0">
+      <Pane layoutX="1153.0" layoutY="28.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="214.0">
          <children>
-            <Label fx:id="bdg" alignment="CENTER" prefHeight="53.0" prefWidth="202.0" style="-fx-background-color: #579688; -fx-background-radius: 50% 0% 0% 0%;" textFill="#fcfcfc">
+            <Label fx:id="bdg" alignment="CENTER" layoutX="12.0" layoutY="-6.0" prefHeight="53.0" prefWidth="202.0" style="-fx-background-color: #579688; -fx-background-radius: 0% 50% 0% 0%;" textFill="#fcfcfc">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
@@ -129,7 +120,7 @@
             <MaterialDesignIconView fill="WHITE" glyphName="ACCOUNT_CIRCLE" layoutX="156.0" layoutY="32.0" size="32" wrappingWidth="31.0" />
          </children>
       </Pane>
-      <Label alignment="CENTER_RIGHT" layoutX="42.0" layoutY="28.0" prefHeight="30.0" prefWidth="1065.0" text="السعر ................................." textFill="#555555">
+      <Label alignment="CENTER_RIGHT" layoutX="24.0" layoutY="28.0" prefHeight="30.0" prefWidth="1083.0" style="-fx-border-radius: 2% 2 % 2% 2 %; -fx-border-color: #999;" text="السعر ................................." textFill="#555555">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>

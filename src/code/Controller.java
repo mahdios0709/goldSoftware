@@ -62,7 +62,6 @@ public class Controller {
         ResultSet    rs = st.executeQuery("SELECT userName ,PASSWORD FROM gold.config where  (userName='" + UserName + "' And PASSWORD=SHA('" + pass + "'))");
             if (rs.next()) {
                     UserName = rs.getString("userName");
-                    System.out.println("test");
                     FXLoader fx = new FXLoader();
                     ((Node) (event.getSource())).getScene().getWindow().hide();
                      fx.LoadWin(event, "Fx", "Dashboard");
