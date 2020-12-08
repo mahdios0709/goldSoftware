@@ -119,7 +119,7 @@
             <MaterialDesignIconView fill="WHITE" glyphName="ACCOUNT_CIRCLE" layoutX="156.0" layoutY="32.0" size="32" wrappingWidth="31.0" />
          </children>
       </Pane>
-      <Label alignment="CENTER" layoutX="21.0" layoutY="20.0" minHeight="40.0" prefHeight="40.0" prefWidth="1134.0" style="-fx-background-color: #fff; -fx-background-radius: 5px  25px 0px 5px; -fx-border-radius: 5px  25px 0px 5px; -fx-border-color: #999;" text="مليون وستة مئة دينار" textFill="#888888">
+      <Label alignment="CENTER" layoutX="21.0" layoutY="20.0" minHeight="40.0" prefHeight="40.0" prefWidth="1134.0" style="-fx-background-color: #fff; -fx-background-radius: 5px  15px 0px 5px; -fx-border-radius: 5px  15px 0px 5px; -fx-border-color: #999;" text="مليون وستة مئة دينار" textFill="#888888">
          <padding>
             <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
          </padding>

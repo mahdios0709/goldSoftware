@@ -1,77 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ChoiceBox?>
-<?import javafx.scene.control.Spinner?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="608.0" prefWidth="1145.0" stylesheets="@../CSS/Style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="code.Home">
+<AnchorPane id="AnchorPane" nodeOrientation="LEFT_TO_RIGHT" prefHeight="608.0" prefWidth="1145.0" stylesheets="@../css/Style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="code.Home">
    <children>
-      <Pane layoutX="741.0" layoutY="21.0" prefHeight="184.0" prefWidth="330.0" style="-fx-border-color: #b2b2b2;">
-         <children>
-            <VBox layoutX="59.0" layoutY="7.0" prefHeight="172.0" prefWidth="197.0">
-               <children>
-                  <Text fill="#888888" strokeType="OUTSIDE" strokeWidth="0.0" text="العيار" textAlignment="CENTER" wrappingWidth="197.3076171875">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                     </VBox.margin>
-                  </Text>
-                  <ChoiceBox prefHeight="30.0" prefWidth="200.0" />
-                  <Text fill="#888888" strokeType="OUTSIDE" strokeWidth="0.0" text="الصنف" textAlignment="CENTER" wrappingWidth="197.2626953125">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                     </VBox.margin>
-                  </Text>
-                  <ChoiceBox prefHeight="30.0" prefWidth="200.0" />
-                  <Text fill="#888888" strokeType="OUTSIDE" strokeWidth="0.0" text="السعر" textAlignment="CENTER" wrappingWidth="197.783203125">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                     </VBox.margin>
-                  </Text>
-                  <Spinner prefHeight="30.0" prefWidth="200.0" />
-               </children>
-            </VBox>
-            <Button contentDisplay="RIGHT" layoutX="5.0" layoutY="148.0" mnemonicParsing="false" style="-fx-background-color: #fff; -fx-border-color: #4f88f1;" textFill="#4f88f1">
-               <graphic>
-                  <FontAwesomeIconView fill="#4f88f1" glyphName="PLUS_SQUARE" size="20" />
-               </graphic>
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-            </Button>
-         </children>
-      </Pane>
-      <TableView layoutX="142.0" layoutY="211.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="375.0" prefWidth="963.0">
-        <columns>
-          <TableColumn prefWidth="132.0" text="العيار 18" />
-          <TableColumn prefWidth="172.0" text="العيار 20" />
-            <TableColumn prefWidth="176.0" text="العيار 20" />
-            <TableColumn prefWidth="168.0" text="التاريخ" />
-        </columns>
-      </TableView>
-      <TextField alignment="CENTER_RIGHT" blendMode="DARKEN" cache="true" layoutX="409.0" layoutY="180.0" prefHeight="25.0" prefWidth="237.0" promptText="بحث">
-         <padding>
-            <Insets bottom="3.0" left="10.0" right="10.0" top="3.0" />
-         </padding>
-      </TextField>
-      <FontAwesomeIconView fill="#888888" glyphName="SEARCH" layoutX="414.0" layoutY="199.0" opacity="0.5" size="20" smooth="false" />
+       <TabPane layoutY="1.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="608.0" prefWidth="1133.0" tabClosingPolicy="UNAVAILABLE">
+          <tabs>
+              <Tab style="-fx-padding: 3px 40px;" text="جديد اسعار">
+                  <fx:include source="tab2goled.fxml" />
+              </Tab>
+              <Tab style="-fx-padding: 3px 40px;" text="حول الذهب">
+                  <fx:include source="tab1goled.fxml" />
+              </Tab>
+          </tabs>
+      </TabPane>
    </children>  
 </AnchorPane>
