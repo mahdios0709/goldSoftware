@@ -35,7 +35,7 @@
                   <Insets />
                </opaqueInsets></TextField>
             <TextField layoutX="489.0" layoutY="49.0" prefHeight="28.0" prefWidth="190.0" />
-            <CheckBox alignment="CENTER_RIGHT" layoutX="271.0" layoutY="16.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="146.0" text="مع الأحجار :" textAlignment="RIGHT" textFill="#777777">
+            <CheckBox alignment="CENTER_RIGHT" layoutX="271.0" layoutY="16.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="146.0" styleClass="radioButton" text="مع الأحجار :" textAlignment="RIGHT" textFill="#777777">
                <padding>
                   <Insets right="10.0" />
                </padding></CheckBox>
