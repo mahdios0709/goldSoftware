@@ -157,12 +157,12 @@ public class ControllerPiece implements Initializable {
             }else if(dejaExist==1){
                 // messege d'erreur deja existe dans la base de donné
             }else{
-                Calendar now=Calendar.getInstance();
-                nowDate= Date.valueOf(now.get(Calendar.YEAR)+"-"+(now.get(Calendar.MONTH)+2)+"-"+now.get(Calendar.DATE));
+        //        Calendar now=Calendar.getInstance();
+            //    nowDate= Date.valueOf(now.get(Calendar.YEAR)+"-"+(now.get(Calendar.MONTH)+2)+"-"+now.get(Calendar.DATE));
                 try{
                     if (file1!=null){
                         con = Connecter.getConnection();
-                        pst = con.prepareStatement("INSERT INTO `productmag`(`productCode`, `productImage`, `weight`, `prodcutBarCode`, `withMojawharat`, `idKara`, `idGoldType`, `Date`) VALUES (?,?,?,?,?,?,?,?,?,?)");
+                        pst = con.prepareStatement("INSERT INTO `productmag`(`productCode`, `productImage`, `weight`, `prodcutBarCode`, `withMojawharat`, `idKara`, `idGoldType`, `date`) VALUES (?,?,?,?,?,?,?,?,?,SELECT CURRENT_DATE())");
                         pst.setString(1,pieceNumber.getText());
                         FileInputStream fis1=new FileInputStream(file1);
                         pst.setBinaryStream(2,fis1,file1.length());
@@ -171,7 +171,7 @@ public class ControllerPiece implements Initializable {
                         pst.setInt(5,0);
                         pst.setString(6,karaNumber.getValue());
                         pst.setInt(7,idGoldType);
-                        pst.setDate(8,nowDate);
+                      //  pst.setDate(8,nowDate);
                         rs=pst.executeQuery();
                     }else{
                         con = Connecter.getConnection();
@@ -182,7 +182,6 @@ public class ControllerPiece implements Initializable {
                         pst.setInt(4,0);
                         pst.setString(5,karaNumber.getValue());
                         pst.setInt(6,idGoldType);
-                        pst.setDate(7,nowDate);
                         rs=pst.executeQuery();
                     }
                 }catch (SQLException | FileNotFoundException throwables) {
