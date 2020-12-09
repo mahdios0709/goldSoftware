@@ -20,7 +20,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="608.0" prefWidth="1145.0" stylesheets="@../CSS/Style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="code.Home">
+<AnchorPane id="AnchorPane" prefHeight="608.0" prefWidth="1145.0" stylesheets="@../css/Style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="code.Home">
    <children>
       <Pane layoutX="201.0" prefHeight="153.0" prefWidth="698.0">
          <children>
@@ -32,7 +32,7 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" layoutX="344.0" layoutY="52.0" minHeight="70.0" prefHeight="90.0" prefWidth="330.0" style="-fx-background-color: #fff; -fx-background-radius: 0 0 10px 10px; -fx-border-radius: 0 0 10px 10px; -fx-border-color: #999; -fx-text-fill: linear-gradient(to bottom, #D4AF37 0%, #C5A028 100%);" text="9999999999999" textFill="#ff0808">
+            <Label fx:id="benefit" alignment="CENTER" layoutX="344.0" layoutY="52.0" minHeight="70.0" prefHeight="90.0" prefWidth="330.0" style="-fx-background-color: #fff; -fx-background-radius: 0 0 10px 10px; -fx-border-radius: 0 0 10px 10px; -fx-border-color: #999; -fx-text-fill: linear-gradient(to bottom, #D4AF37 0%, #C5A028 100%);" text="9999999999999" textFill="#ff0808">
                <padding>
                   <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
                </padding>
@@ -52,7 +52,7 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" layoutX="8.0" layoutY="52.0" minHeight="70.0" prefHeight="90.0" prefWidth="330.0" style="-fx-background-color: #fff; -fx-background-radius: 0 0 10px 10px; -fx-border-radius: 0 0 10px 10px; -fx-border-color: #999;" text="999999999999999" textFill="#878787">
+            <Label fx:id="benefitMonthly" alignment="CENTER" layoutX="8.0" layoutY="52.0" minHeight="70.0" prefHeight="90.0" prefWidth="330.0" style="-fx-background-color: #fff; -fx-background-radius: 0 0 10px 10px; -fx-border-radius: 0 0 10px 10px; -fx-border-color: #999;" text="999999999999999" textFill="#878787">
                <padding>
                   <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
                </padding>
@@ -176,7 +176,7 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" disable="true" layoutX="10.0" layoutY="378.0" minHeight="35.0" opacity="0.84" prefHeight="27.0" prefWidth="227.0" style="-fx-background-color: linear-gradient(to right, #8de9d5, #32c4c0); -fx-border-color: linear-gradient(to bottom, #D4AF37 0%, #C5A028  linear-gradient(to right, #8de9d5, #32c4c0)100%); -fx-background-radius: 0 10px 0 10px; -fx-border-radius: 0 10px 0 10px;" text="عدد القطع" textFill="WHITE">
+            <Label alignment="CENTER" disable="true" layoutX="10.0" layoutY="378.0" minHeight="35.0" opacity="0.84" prefHeight="27.0" prefWidth="227.0" style="-fx-background-color: linear-gradient(to right, #8de9d5, #32c4c0); -fx-background-radius: 0 10px 0 10px; -fx-border-radius: 0 10px 0 10px;" text="عدد القطع" textFill="WHITE">
                <padding>
                   <Insets left="10.0" right="10.0" />
                </padding>

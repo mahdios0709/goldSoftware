@@ -58,7 +58,7 @@
                   <Insets bottom="10.0" left="10.0" right="40.0" top="10.0" />
                </padding>
             </ToggleButton>
-            <ToggleButton alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="2.0" layoutY="362.0" mnemonicParsing="false" onAction="#goldprice" prefHeight="30.0" prefWidth="200.0" styleClass="btnfx" text="احصائيات" toggleGroup="$groupe">
+            <ToggleButton alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="2.0" layoutY="362.0" mnemonicParsing="false" onAction="#goldprice" prefHeight="30.0" prefWidth="200.0" styleClass="btnfx" text="ذهب" toggleGroup="$groupe">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
@@ -106,17 +106,17 @@
       </AnchorPane>
       <Pane layoutX="1182.0" layoutY="20.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="214.0">
          <children>
-            <Label fx:id="bdg" alignment="CENTER" layoutX="12.0" layoutY="-6.0" prefHeight="53.0" prefWidth="202.0" style="-fx-background-color: #579688; -fx-background-radius: 0% 50% 0% 0%;" textFill="#fcfcfc">
+            <Label alignment="CENTER" layoutX="12.0" layoutY="-6.0" prefHeight="53.0" prefWidth="202.0" style="-fx-background-color: #579688; -fx-background-radius: 0% 50% 0% 0%;" textFill="#fcfcfc">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Label alignment="CENTER_RIGHT" layoutX="28.0" layoutY="5.0" prefHeight="30.0" prefWidth="128.0" styleClass="lbnfx" text="Label" textFill="#f8f7f7">
+            <Label fx:id="userName" alignment="CENTER" layoutX="57.0" layoutY="5.0" prefHeight="35.0" prefWidth="135.0" styleClass="lbnfx" text="Label" textAlignment="CENTER" textFill="#f8f7f7">
                <font>
-                  <Font name="System Bold" size="14.0" />
+                  <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <MaterialDesignIconView fill="WHITE" glyphName="ACCOUNT_CIRCLE" layoutX="156.0" layoutY="32.0" size="32" wrappingWidth="31.0" />
+            <MaterialDesignIconView fill="WHITE" glyphName="ACCOUNT_CIRCLE" layoutX="32.0" layoutY="34.0" size="34" wrappingWidth="31.0" />
          </children>
       </Pane>
       <Label alignment="CENTER" layoutX="21.0" layoutY="20.0" minHeight="40.0" prefHeight="40.0" prefWidth="1134.0" style="-fx-background-color: #fff; -fx-background-radius: 5px  15px 0px 5px; -fx-border-radius: 5px  15px 0px 5px; -fx-border-color: #999;" text="مليون وستة مئة دينار" textFill="#888888">

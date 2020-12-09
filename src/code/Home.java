@@ -34,71 +34,21 @@ import javafx.util.Callback;
  * @author AbdElFateh
  */
 public class Home implements Initializable {
-/*
     @FXML
-    private Label prime;
+    private Label benefit;
 
     @FXML
-    private Label achat;
-
-    @FXML
-    private Label emprunt;
-
-    @FXML
-    private BarChart<?, ?> bar;
-
-    @FXML
-    private Label bdg;
-
-    @FXML
-    private Label creadit;
-    @FXML
-    private Label anneebdg;
-    @FXML
-    private PieChart pie;
-
-    @FXML
-    private Label date;
-    @FXML
-    private Label nbPrime;
-
-    @FXML
-    private Label nbAch;
-    @FXML
-    private Label paiement;
-    @FXML
-    private Label nbEmp;
-     @FXML
-    private Label remboursement;
-
-    @FXML
-    private Label nbrembors;
-    @FXML
-    private Label nbPayer;
-    @FXML
-    private Text txtTitulaire;
-
-    @FXML
-    private Text txtVacataire;
-
-    @FXML
-    private Text txtTotal;
-    @FXML
-    private Text txtTotalRec;
-    @FXML
-    private Label by;
-    @FXML
-    private ListView<situation_mensuel> ListeMois;
-    private static final int idSo =Controller.getID_Societe();*/
+    private Label benefitMonthly;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-      //  loading();
+        loading();
         //loadList();
 
     }
 
     private void loading() {
-       /* Double bdg1 = null,req=null, crd1 = null, prime1 = null, achat1 = null, emprunt1 = null, payer1 = null;
+/*
+        Double bdg1 = null,req=null, crd1 = null, prime1 = null, achat1 = null, emprunt1 = null, payer1 = null;
         try (Connection con = Connecter.getConnection(); Statement st = con.createStatement(); ResultSet rs = st.executeQuery("SELECT  BUDGET,AnneeBudget,Date FROM servicesociaux.societe")) {
             if (rs.next()) {
                 ///  bdg.setText(rs.getString("NOM_Soc"));

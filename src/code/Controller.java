@@ -32,7 +32,11 @@ public class Controller {
     @FXML
     private Label eText;
 
-    static   String UserName;
+    private static   String UserName;
+
+    public static String getUserName() {
+        return UserName;
+    }
 
 
     @FXML
@@ -46,7 +50,7 @@ public class Controller {
         String pass;
         UserName = userLogin.getText();
         pass = passLogin.getText();
-        if (UserName.isEmpty()) {
+        if (getUserName().isEmpty()) {
             eText.setText("Enter User Name");
             return;
         }
@@ -57,7 +61,7 @@ public class Controller {
 
         try (Connection con = Connecter.getConnection(); Statement st = con.createStatement()) {
 
-        ResultSet    rs = st.executeQuery("SELECT userName ,PASSWORD FROM gold.config where  (userName='" + UserName + "' And PASSWORD=SHA('" + pass + "'))");
+        ResultSet    rs = st.executeQuery("SELECT userName ,PASSWORD FROM gold.config where  (userName='" + getUserName() + "' And PASSWORD=SHA('" + pass + "'))");
             if (rs.next()) {
                     UserName = rs.getString("userName");
                     FXLoader fx = new FXLoader();

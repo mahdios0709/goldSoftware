@@ -385,7 +385,7 @@ public class ControllerPiece implements Initializable {
                 int idEdit=pieceTableView.getItems().get(index).getId();
                 Calendar now=Calendar.getInstance();
                 nowDate= Date.valueOf(now.get(Calendar.YEAR)+"-"+(now.get(Calendar.MONTH)+2)+"-"+now.get(Calendar.DATE));
-                try{
+               try{
                     if (file1!=null){
                         con = Connecter.getConnection();
                         pst = con.prepareStatement("UPDATE `productmag` SET `productCode`=?,`productImage`=?,`weight`=?,`prodcutBarCode`=?,`withMojawharat`=?,`idKara`=?,`idGoldType`=?,`date`=? WHERE `id`=?");
@@ -427,10 +427,10 @@ public class ControllerPiece implements Initializable {
     void refresh(ActionEvent event) {
         pieceNumber.clear();
         pieceWeight.clear();
-        karaNumber.getItems().clear();
-        karaNumber.setItems(karaId);
-        goldType.getItems().clear();
-        goldType.setItems(karaId);
+        karaNumber.getSelectionModel().clearSelection();
+     //   karaNumber.setItems(karaId);
+      //  goldType.getItems().clear();
+        goldType.getSelectionModel().clearSelection();
         withStone.setSelected(false);
         stoneName.clear();
         stonePrice.clear();
@@ -489,12 +489,13 @@ public class ControllerPiece implements Initializable {
     }
 
     private void fillCombo() {
+        goldType.getItems().clear();
         try {
             con = Connecter.getConnection();
-            pst = con.prepareStatement("SELECT * FROM `goldtype`");
+            pst = con.prepareStatement("SELECT goldType FROM goldtype");
             rs= pst.executeQuery();
             while(rs.next()){
-                karaNumber.getItems().add(rs.getString("goldType"));
+                goldType.getItems().add(rs.getString(1));
             }
             pst.close();
 
@@ -592,7 +593,7 @@ public class ControllerPiece implements Initializable {
         }else{
             try{
                 con = Connecter.getConnection();
-                pst = con.prepareStatement("INSERT INTO `goldtype`(`goldType`, `abGoldType`) VALUES (?,?");
+                pst = con.prepareStatement("INSERT INTO `goldtype`(`goldType`, `abGoldType`) VALUES (?,?)");
                 pst.setString(1,valeurF.getText());
                 pst.setString(2,objF.getText());
                 pst.execute();
@@ -601,6 +602,8 @@ public class ControllerPiece implements Initializable {
                 throwables.printStackTrace();
             }
         }
+        objF.setText(null);
+        valeurF.setText(null);
         addToTable2();
         fillCombo();
 

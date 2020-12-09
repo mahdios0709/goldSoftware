@@ -45,7 +45,7 @@ public class MainController implements Initializable {
 
 
     @FXML
-    private Label User;
+    private Label userName;
 
     @FXML
     void goldprice(ActionEvent event) throws IOException{
@@ -92,7 +92,7 @@ public class MainController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        userName.setText(Controller.getUserName());
         try {
             FXLoader load = new FXLoader();
             viewpane = load.getpage2("Main");
