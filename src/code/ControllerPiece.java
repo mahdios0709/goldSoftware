@@ -29,7 +29,7 @@ public class ControllerPiece implements Initializable {
     PreparedStatement pst;
     ResultSet rs;
     File file1=null;
-    int idGoldType=0;
+  //  int idGoldType=1;
     Date nowDate;
 
     ObservableList<String> karaId= FXCollections.observableArrayList("24","22","18","14","10","9");
@@ -111,16 +111,16 @@ public class ControllerPiece implements Initializable {
         }
         if (withStone.isSelected()){
             if (karaNumber.getSelectionModel().isEmpty()||goldType.getSelectionModel().isEmpty()||pieceNumber.getText().isEmpty()||pieceWeight.getText().isEmpty()||stoneName.getText().isEmpty()||stonePrice.getText().isEmpty()){
-                // messege d'erreur please fill the gaps
+                 new DialogOption().DialogOptionERROR("ادخل جميع الحقول","خطاء");
             }else if(dejaExist==1){
-                // messege d'erreur deja existe dans la base de donné
+                new DialogOption().DialogOptionERROR("رقم القطعة موجودة","خطاء");
             }else{
-                Calendar now=Calendar.getInstance();
-                nowDate= Date.valueOf(now.get(Calendar.YEAR)+"-"+(now.get(Calendar.MONTH)+2)+"-"+now.get(Calendar.DATE));
+              //  Calendar now=Calendar.getInstance();
+               // nowDate= Date.valueOf(now.get(Calendar.YEAR)+"-"+(now.get(Calendar.MONTH)+2)+"-"+now.get(Calendar.DATE));
                 try{
                     if (file1!=null){
                         con = Connecter.getConnection();
-                        pst = con.prepareStatement("INSERT INTO `productmag`(`productCode`, `productImage`, `weight`, `prodcutBarCode`, `withMojawharat`, `mojawharatName`, `mojawharatPrice`, `idKara`, `idGoldType`, `Date`) VALUES (?,?,?,?,?,?,?,?,?,?)");
+                        pst = con.prepareStatement("INSERT INTO `productmag`(`productCode`, `productImage`, `weight`, `prodcutBarCode`, `withMojawharat`, `mojawharatName`, `mojawharatPrice`, `idKara`, `idGoldType`, `Date`) VALUES (?,?,?,?,?,?,?,?,(SELECT id from goldtype WHERE goldType=?),CURRENT_TIMESTAMP())");
                         pst.setString(1,pieceNumber.getText());
                         FileInputStream fis1=new FileInputStream(file1);
                         pst.setBinaryStream(2,fis1,file1.length());
@@ -130,12 +130,14 @@ public class ControllerPiece implements Initializable {
                         pst.setString(6,stoneName.getText());
                         pst.setString(7,stonePrice.getText());
                         pst.setString(8,karaNumber.getValue());
-                        pst.setInt(9,idGoldType);
-                        pst.setDate(10,nowDate);
-                        rs=pst.executeQuery();
+                        pst.setString(9,goldType.getSelectionModel().getSelectedItem());
+                       // pst.setDate(10,nowDate);
+                        pst.execute();
+                        pst.close();
+
                     }else{
                         con = Connecter.getConnection();
-                        pst = con.prepareStatement("INSERT INTO `productmag`(`productCode`, `weight`, `prodcutBarCode`, `withMojawharat`, `mojawharatName`, `mojawharatPrice`, `idKara`, `idGoldType`, `Date`) VALUES (?,?,?,?,?,?,?,?,?)");
+                        pst = con.prepareStatement("INSERT INTO `productmag`(`productCode`, `weight`, `prodcutBarCode`, `withMojawharat`, `mojawharatName`, `mojawharatPrice`, `idKara`, `idGoldType`, `Date`) VALUES (?,?,?,?,?,?,?,(SELECT id from goldtype WHERE goldType=?),CURRENT_TIMESTAMP())");
                         pst.setString(1,pieceNumber.getText());
                         pst.setString(2,pieceWeight.getText());
                         pst.setString(3,"codebar");
@@ -143,9 +145,11 @@ public class ControllerPiece implements Initializable {
                         pst.setString(5,stoneName.getText());
                         pst.setString(6,stonePrice.getText());
                         pst.setString(7,karaNumber.getValue());
-                        pst.setInt(8,idGoldType);
-                        pst.setDate(9,nowDate);
-                        rs=pst.executeQuery();
+                        pst.setString(8,goldType.getSelectionModel().getSelectedItem());
+                       // pst.setDate(9,nowDate);
+                        pst.execute();
+                        pst.close();
+
                     }
                 }catch (SQLException | FileNotFoundException throwables) {
                     throwables.printStackTrace();
@@ -162,7 +166,7 @@ public class ControllerPiece implements Initializable {
                 try{
                     if (file1!=null){
                         con = Connecter.getConnection();
-                        pst = con.prepareStatement("INSERT INTO `productmag`(`productCode`, `productImage`, `weight`, `prodcutBarCode`, `withMojawharat`, `idKara`, `idGoldType`, `date`) VALUES (?,?,?,?,?,?,?,?,?,SELECT CURRENT_DATE())");
+                        pst = con.prepareStatement("INSERT INTO `productmag`(`productCode`, `productImage`, `weight`, `prodcutBarCode`, `withMojawharat`, `idKara`, `idGoldType`, `date`) VALUES (?,?,?,?,?,?,(SELECT id from goldtype WHERE goldType=?),CURRENT_TIMESTAMP())");
                         pst.setString(1,pieceNumber.getText());
                         FileInputStream fis1=new FileInputStream(file1);
                         pst.setBinaryStream(2,fis1,file1.length());
@@ -170,25 +174,30 @@ public class ControllerPiece implements Initializable {
                         pst.setString(4,"codebar");
                         pst.setInt(5,0);
                         pst.setString(6,karaNumber.getValue());
-                        pst.setInt(7,idGoldType);
+                        pst.setString(7,goldType.getSelectionModel().getSelectedItem());
                       //  pst.setDate(8,nowDate);
-                        rs=pst.executeQuery();
+
+                        pst.execute();
+                        pst.close();
+
                     }else{
                         con = Connecter.getConnection();
-                        pst = con.prepareStatement("INSERT INTO `productmag`(`productCode`, `weight`, `prodcutBarCode`, `withMojawharat`, `idKara`, `idGoldType`, `Date`) VALUES (?,?,?,?,?,?,?,?,?)");
+                        pst = con.prepareStatement("INSERT INTO `productmag`(`productCode`, `weight`, `prodcutBarCode`, `withMojawharat`, `idKara`, `idGoldType`, `Date`) VALUES (?,?,?,?,?,(SELECT id from goldtype WHERE goldType=?),CURRENT_TIMESTAMP())");
                         pst.setString(1,pieceNumber.getText());
                         pst.setString(2,pieceWeight.getText());
                         pst.setString(3,"codebar");
                         pst.setInt(4,0);
                         pst.setString(5,karaNumber.getValue());
-                        pst.setInt(6,idGoldType);
-                        rs=pst.executeQuery();
+                        pst.setString(6,goldType.getSelectionModel().getSelectedItem());
+                        pst.execute();
+                        pst.close();
                     }
                 }catch (SQLException | FileNotFoundException throwables) {
                     throwables.printStackTrace();
                 }
             }
         }
+        addToTable();
 
     }
 
@@ -332,12 +341,10 @@ public class ControllerPiece implements Initializable {
                 int index = pieceTableView.getSelectionModel().getSelectedIndex();
                 int idEdit=pieceTableView.getItems().get(index).getId();
 
-                Calendar now=Calendar.getInstance();
-                nowDate= Date.valueOf(now.get(Calendar.YEAR)+"-"+(now.get(Calendar.MONTH)+2)+"-"+now.get(Calendar.DATE));
-                try{
+                 try{
                     if (file1!=null){
                         con = Connecter.getConnection();
-                        pst = con.prepareStatement("UPDATE `productmag` SET `productCode`=?,`productImage`=?,`weight`=?,`prodcutBarCode`=?,`withMojawharat`=?,`mojawharatName`=?,`mojawharatPrice`=?,`idKara`=?,`idGoldType`=?,`date`=? WHERE `id`=?");
+                        pst = con.prepareStatement("UPDATE `productmag` SET `productCode`=?,`productImage`=?,`weight`=?,`prodcutBarCode`=?,`withMojawharat`=?,`mojawharatName`=?,`mojawharatPrice`=?,`idKara`=?,`idGoldType`=(SELECT id from goldtype WHERE goldType=?),`date`=CURRENT_TIMESTAMP() WHERE `id`=?");
                         pst.setString(1,pieceNumber.getText());
                         FileInputStream fis1=new FileInputStream(file1);
                         pst.setBinaryStream(2,fis1,file1.length());
@@ -347,15 +354,15 @@ public class ControllerPiece implements Initializable {
                         pst.setString(6,stoneName.getText());
                         pst.setString(7,stonePrice.getText());
                         pst.setString(8,karaNumber.getValue());
-                        pst.setInt(9,idGoldType);
-                        pst.setDate(10,nowDate);
-                        pst.setInt(11,idEdit);
-                        rs=pst.executeQuery();
+                        pst.setString(9,goldType.getSelectionModel().getSelectedItem());
+//                        pst.setDate(10,nowDate);
+                        pst.setInt(10,idEdit);
+                        pst.execute();
                         pst.close();
 
                     }else{
                         con = Connecter.getConnection();
-                        pst = con.prepareStatement("UPDATE `productmag` SET `productCode`=?,`weight`=?,`prodcutBarCode`=?,`withMojawharat`=?,`mojawharatName`=?,`mojawharatPrice`=?,`idKara`=?,`idGoldType`=?,`date`=? WHERE `id`=?");
+                        pst = con.prepareStatement("UPDATE `productmag` SET `productCode`=?,`weight`=?,`prodcutBarCode`=?,`withMojawharat`=?,`mojawharatName`=?,`mojawharatPrice`=?,`idKara`=?,`idGoldType`=(SELECT id from goldtype WHERE goldType=?),`date`=CURRENT_TIMESTAMP() WHERE `id`=?");
                         pst.setString(1,pieceNumber.getText());
                         pst.setString(2,pieceWeight.getText());
                         pst.setString(3,"codebar");
@@ -363,10 +370,10 @@ public class ControllerPiece implements Initializable {
                         pst.setString(5,stoneName.getText());
                         pst.setString(6,stonePrice.getText());
                         pst.setString(7,karaNumber.getValue());
-                        pst.setInt(8,idGoldType);
-                        pst.setDate(9,nowDate);
-                        pst.setInt(10,idEdit);
-                        rs=pst.executeQuery();
+                        pst.setString(8,goldType.getSelectionModel().getSelectedItem());
+//                        pst.setDate(9,nowDate);
+                        pst.setInt(9,idEdit);
+                        pst.execute();
                         pst.close();
 
                     }
@@ -387,7 +394,7 @@ public class ControllerPiece implements Initializable {
                try{
                     if (file1!=null){
                         con = Connecter.getConnection();
-                        pst = con.prepareStatement("UPDATE `productmag` SET `productCode`=?,`productImage`=?,`weight`=?,`prodcutBarCode`=?,`withMojawharat`=?,`idKara`=?,`idGoldType`=?,`date`=? WHERE `id`=?");
+                        pst = con.prepareStatement("UPDATE `productmag` SET `productCode`=?,`productImage`=?,`weight`=?,`prodcutBarCode`=?,`withMojawharat`=?,`idKara`=?,`idGoldType`=(SELECT id from goldtype WHERE goldType=?),`date`=CURRENT_TIMESTAMP() WHERE `id`=?");
                         pst.setString(1,pieceNumber.getText());
                         FileInputStream fis1=new FileInputStream(file1);
                         pst.setBinaryStream(2,fis1,file1.length());
@@ -395,24 +402,25 @@ public class ControllerPiece implements Initializable {
                         pst.setString(4,"codebar");
                         pst.setInt(5,0);
                         pst.setString(6,karaNumber.getValue());
-                        pst.setInt(7,idGoldType);
-                        pst.setDate(8,nowDate);
-                        pst.setInt(9,idEdit);
-                        rs=pst.executeQuery();
+                        pst.setString(7,goldType.getSelectionModel().getSelectedItem());
+//                        pst.setDate(8,nowDate);
+                        pst.setInt(8,idEdit);
+                        pst.execute();
+
                         pst.close();
 
                     }else{
                         con = Connecter.getConnection();
-                        pst = con.prepareStatement("UPDATE `productmag` SET `productCode`=?,`weight`=?,`prodcutBarCode`=?,`withMojawharat`=?,`idKara`=?,`idGoldType`=?,`date`=? WHERE `id`=?)");
+                        pst = con.prepareStatement("UPDATE `productmag` SET `productCode`=?,`weight`=?,`prodcutBarCode`=?,`withMojawharat`=?,`idKara`=?,`idGoldType`=(SELECT id from goldtype WHERE goldType=?),`date`=CURRENT_TIMESTAMP() WHERE `id`=?)");
                         pst.setString(1,pieceNumber.getText());
                         pst.setString(2,pieceWeight.getText());
                         pst.setString(3,"codebar");
                         pst.setInt(4,0);
                         pst.setString(5,karaNumber.getValue());
-                        pst.setInt(6,idGoldType);
-                        pst.setDate(7,nowDate);
-                        pst.setInt(8,idEdit);
-                        rs=pst.executeQuery();
+                        pst.setString(6,goldType.getSelectionModel().getSelectedItem());
+//                        pst.setDate(7,nowDate);
+                        pst.setInt(7,idEdit);
+                        pst.execute();
                         pst.close();
                     }
                 }catch (SQLException | FileNotFoundException throwables) {
@@ -420,6 +428,8 @@ public class ControllerPiece implements Initializable {
                 }
             }
         }
+        addToTable();
+
     }
 
     @FXML
