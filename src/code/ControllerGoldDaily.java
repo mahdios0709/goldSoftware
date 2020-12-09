@@ -52,37 +52,31 @@ public class ControllerGoldDaily implements Initializable {
     String caliberTemp =  caliberFiled.getSelectionModel().getSelectedItem()+"";
     String  typeTemp =typleFiled.getSelectionModel().getSelectedItem()+"";
     String  priceTemp=  priceFiled.getText()+"";
-    int  typeIdGoldtemp=0;
-    if (caliberTemp.isEmpty()||typeTemp.isEmpty()||priceTemp.isEmpty()){
-        new DialogOption().DialogOptionERROR("خطأ يرجى منكم ادخال كافة المعلومات","تحذير");
 
-        try (Connection con = Connecter.getConnection(); Statement st = con.createStatement()) {
-            ResultSet rs;
-            rs = st.executeQuery("SELECT `id`, FROM `goldtype` WHERE `goldType`='"+typeTemp+"'");
+    if (caliberTemp.isEmpty()||typeTemp.isEmpty()||priceTemp.isEmpty()) {
+        new DialogOption().DialogOptionERROR("خطأ يرجى منكم ادخال كافة المعلومات", "تحذير");
 
-            if (rs.next()) {
-                typeIdGoldtemp = rs.getInt(1);
-
-            }
-
-        } catch (SQLException ex) {
-            System.err.println( ""+ex);
-
-        }
+    }
 
        try (Connection con = Connecter.getConnection(); Statement st = con.createStatement()) {
-          System.out.println("INSERT INTO `goldprices`( `idKara`, `idGoldType`, `date`, `price`) VALUES ("
-                   + "VALUES('"+caliberTemp+","+ typeIdGoldtemp+",CURRENT_TIMESTAMP(),"+priceTemp+") ON DUPLICATE KEY UPDATE price="+priceTemp+";");
+           ResultSet rs1 = st.executeQuery("select id FROM goldprices WHERE ((SELECT `goldType` FROM `goldtype` WHERE `goldType`='"+ typeTemp +"')='"+typeTemp+"' AND idKara="+caliberTemp+")");
+                   if(rs1.next()){
+                       st.executeUpdate("UPDATE `goldprices` SET   `date`=CURRENT_TIMESTAMP(), `price`="+priceTemp+" ");
+                        System.out.println("111111111111111");
+                   }else {
+                       st.executeUpdate("INSERT  IGNORE INTO `goldprices`( `idKara`, `idGoldType`, `date`, `price`) "
+                               + "VALUES(" + caliberTemp + ",(SELECT `id` FROM `goldtype` WHERE `goldType`='" + typeTemp + "'),CURRENT_TIMESTAMP()," + priceTemp + ") ON DUPLICATE KEY UPDATE price=" + priceTemp + ";");
+                       System.out.println("22222222222");
+                   }
+                   rs1.close();
+           new DialogOption().DialogOptionINFORMATION("تم الاضافة بنجاح", "نجاح العملية");
 
-           st.executeUpdate("INSERT INTO `goldprices`( `idKara`, `idGoldType`, `date`, `price`) VALUES ("
-                    + "VALUES('"+caliberTemp+","+ typeIdGoldtemp+",CURRENT_TIMESTAMP(),"+priceTemp+") ON DUPLICATE KEY UPDATE price="+priceTemp+";");
-            new DialogOption().DialogOptionINFORMATION("تم الاضافة بنجاح", "نجاح العملية");
-
+           loadData();
         } catch (SQLException ex) {
             new DialogOption().DialogOptionERROR("حدث خطاء", "خطاء");
             System.err.println(""+ex);
         }
-    }
+
 
 
     }
@@ -92,11 +86,10 @@ public class ControllerGoldDaily implements Initializable {
         ObservableList<String> karaId= FXCollections.observableArrayList("24","22","18","14","10","9");
         caliberFiled.setItems(karaId);
 
-        type.setCellValueFactory(new PropertyValueFactory<>("goldType"));
-        caliber.setCellValueFactory(new PropertyValueFactory<>("karaNumber"));
+        type.setCellValueFactory(new PropertyValueFactory<>("idGoldType"));
+        caliber.setCellValueFactory(new PropertyValueFactory<>("idKara"));
         price.setCellValueFactory(new PropertyValueFactory<>("price"));
         dateGold.setCellValueFactory(new PropertyValueFactory<>("date"));
-
 
 
         loadData();
