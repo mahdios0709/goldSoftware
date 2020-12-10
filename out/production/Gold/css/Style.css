@@ -87,7 +87,7 @@ and open the temp late in the editor.
 .tab{
     -fx-background-color:#579688;
     -fx-text-base-color:#fff;
-    -fx-font-size:12pt; 
+    -fx-font-size:12pt;
     -fx-border-radius: 2px 2px 0 0;
 }
 .missing{
@@ -119,4 +119,77 @@ and open the temp late in the editor.
     -fx-border-style:  solid hidden  hidden   hidden  ; ;
     -fx-border-color:   #999  ;
     -fx-border-width: 1px ;
+}
+/*new design */
+.hyperlink{
+    -fx-text-fill: #cb0006;
+}
+
+.headerPane{
+    -fx-background-color:  derive(grey, -30%);
+}
+
+.table-view {
+    -fx-base: white;
+    -fx-control-inner-background: white;
+    -fx-background-color: #c7c7c7;
+    -fx-table-cell-border-color: transparent;
+    -fx-table-header-border-color: transparent;
+    -fx-padding: 2;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #579688;
+}
+
+.table-view .column-header, .table-view .filler {
+    -fx-size: 35;
+    -fx-border-width: 0 0 0 0;
+    -fx-background-color: transparent;
+    -fx-border-color:
+        transparent
+        transparent
+        derive(-fx-base, 80%)
+        transparent;
+    -fx-border-insets: 0 10 1 0;
+}
+
+.table-view .column-header .label {
+    -fx-font-size: 12px;
+    -fx-font-family: "Segoe UI bold";
+    -fx-text-fill: white;
+    -fx-alignment: center-left;
+
+
+}
+.Table-Column{
+ -fx-border-color: #fff;
+ -fx-border-width: 0.5px;
+}
+.table-view:focused .table-row-cell:filled:focused:selected {
+    -fx-background-color: -fx-focus-color;
+    -fx-border-color: #fff;
+     -fx-border-width: 0.5px;
+
+}
+
+.table-cell {
+    -fx-cell-size: 4.0em;
+    -fx-padding: 1em 0em 0.1em 0.1em;
+    -fx-font: 12px "Segoe UI";
+    -fx-alignment: bottom-left;
+
+}
+
+.table-row-cell:empty {
+    -fx-background-color: #f8f8f8;
+    -fx-base: transparent;
+    -fx-control-inner-background: transparent;
+    -fx-table-cell-border-color: transparent;
+    -fx-table-header-border-color: transparent;
+    -fx-padding: 0;
+}
+
+.table-row-cell:empty .table-cell {
+    -fx-border-width: 0px;
 }

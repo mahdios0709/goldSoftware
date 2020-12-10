@@ -125,7 +125,7 @@
             <ComboBox fx:id="goldType" layoutX="515.0" layoutY="119.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="28.0" prefWidth="165.0" promptText="الصنف" style="-fx-background-color: #fff; -fx-border-color: #777;" />
          </children>
       </Pane>
-      <TableView fx:id="pieceTableView" layoutX="26.0" layoutY="207.0" nodeOrientation="LEFT_TO_RIGHT" onMouseClicked="#pieceSelected" prefHeight="366.0" prefWidth="1064.0" AnchorPane.leftAnchor="26.0">
+      <TableView fx:id="pieceTableView" layoutX="26.0" layoutY="207.0" nodeOrientation="RIGHT_TO_LEFT" onMouseClicked="#pieceSelected" prefHeight="366.0" prefWidth="1064.0" AnchorPane.leftAnchor="26.0">
         <columns>
           <TableColumn fx:id="pieceNumberTable" prefWidth="132.0" text="رقم القطعة" />
             <TableColumn fx:id="karaNumberTable" prefWidth="172.0" text="العيار" />
