@@ -53,7 +53,12 @@ public class MainController implements Initializable {
         viewpane = load.getpage2("gold");
         mainpane.setCenter(viewpane);
     }
-
+    @FXML
+    void facture(ActionEvent event) throws IOException {
+        FXLoader load = new FXLoader();
+        viewpane = load.getpage2("facture");
+        mainpane.setCenter(viewpane);
+    }
     @FXML
     void setting(ActionEvent event) throws IOException {
         FXLoader load = new FXLoader();
