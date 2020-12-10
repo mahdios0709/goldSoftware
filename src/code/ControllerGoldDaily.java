@@ -62,11 +62,9 @@ public class ControllerGoldDaily implements Initializable {
            ResultSet rs1 = st.executeQuery("select id FROM goldprices WHERE ((SELECT `goldType` FROM `goldtype` WHERE `goldType`='"+ typeTemp +"')='"+typeTemp+"' AND idKara="+caliberTemp+")");
                    if(rs1.next()){
                        st.executeUpdate("UPDATE `goldprices` SET   `date`=CURRENT_TIMESTAMP(), `price`="+priceTemp+" ");
-                        System.out.println("111111111111111");
                    }else {
                        st.executeUpdate("INSERT  IGNORE INTO `goldprices`( `idKara`, `idGoldType`, `date`, `price`) "
                                + "VALUES(" + caliberTemp + ",(SELECT `id` FROM `goldtype` WHERE `goldType`='" + typeTemp + "'),CURRENT_TIMESTAMP()," + priceTemp + ") ON DUPLICATE KEY UPDATE price=" + priceTemp + ";");
-                       System.out.println("22222222222");
                    }
                    rs1.close();
            new DialogOption().DialogOptionINFORMATION("تم الاضافة بنجاح", "نجاح العملية");

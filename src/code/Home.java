@@ -22,6 +22,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.PieChart;
 import javafx.scene.chart.XYChart;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
@@ -39,14 +40,32 @@ public class Home implements Initializable {
 
     @FXML
     private Label benefitMonthly;
+
+    @FXML
+    private ComboBox<String> typleFiled;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        loading();
+        //loading();
         //loadList();
+        typeGoldCombox();
 
     }
+    private void typeGoldCombox() {
 
+
+        try (Connection con = Connecter.getConnection(); Statement st = con.createStatement();ResultSet rs = st.executeQuery("SELECT  `goldType`FROM `goldtype`")) {
+            while (rs.next()) {
+                typleFiled.getItems().add(rs.getString(1));
+
+            }
+
+        } catch (SQLException ex) {
+            System.err.println("" + ex);
+
+        }
+    }
     private void loading() {
+
 /*
         Double bdg1 = null,req=null, crd1 = null, prime1 = null, achat1 = null, emprunt1 = null, payer1 = null;
         try (Connection con = Connecter.getConnection(); Statement st = con.createStatement(); ResultSet rs = st.executeQuery("SELECT  BUDGET,AnneeBudget,Date FROM servicesociaux.societe")) {
