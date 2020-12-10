@@ -10,8 +10,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.paint.LinearGradient?>
-<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane nodeOrientation="LEFT_TO_RIGHT" prefHeight="692.0" prefWidth="1342.0" stylesheets="@../css/Style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="code.MainController">
@@ -88,17 +86,7 @@
                   <Insets bottom="10.0" left="10.0" right="40.0" top="10.0" />
                </padding>
                <graphic>
-                  <MaterialDesignIconView glyphName="LOGOUT" size="32" styleClass="icon">
-                     <fill>
-                        <LinearGradient endX="0.44285714285714284" endY="0.9333333333333333" startX="1.0">
-                           <stops>
-                              <Stop color="#cda3a3" />
-                              <Stop color="#cca3a3" offset="0.2371134020618557" />
-                              <Stop color="WHITE" offset="1.0" />
-                           </stops>
-                        </LinearGradient>
-                     </fill>
-                  </MaterialDesignIconView>
+                  <MaterialDesignIconView fill="WHITE" glyphName="LOCK" size="32" styleClass="icon" />
                </graphic>
             </ToggleButton>
             <FontAwesomeIconView fill="WHITE" glyphName="BITCOIN" layoutX="69.0" layoutY="85.0" size="92" />
