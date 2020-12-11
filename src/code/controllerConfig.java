@@ -86,11 +86,14 @@ public class controllerConfig implements Initializable {
                 pst.setString(5,nmbrPhone.getText());
                 pst.setString(6,adresseMag.getText());
             }
+            new DialogOption().DialogOptionINFORMATION("تم تعديل البيانات بنجاح","معلومات البرنامج");
 
             pst.execute();
             pst.close();
         } catch (SQLException | FileNotFoundException throwables) {
             throwables.printStackTrace();
+            new DialogOption().DialogOptionERROR("حدث خطأ يرجى التأكد من البيانات أو الإتصال بالمبرمج","خطاء");
+
         }
 
     }

@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane nodeOrientation="LEFT_TO_RIGHT" prefHeight="692.0" prefWidth="1342.0" stylesheets="@../css/Style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="code.MainController">
+<AnchorPane fx:id="pnlMarquee" nodeOrientation="LEFT_TO_RIGHT" prefHeight="692.0" prefWidth="1342.0" stylesheets="@../css/Style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="code.MainController">
    <children>
       <BorderPane fx:id="mainpane" layoutX="22.0" layoutY="68.0" prefHeight="615.0" prefWidth="1312.0" style="-fx-background-color: #fff;">
          <center>
@@ -118,7 +118,7 @@
             <MaterialDesignIconView fill="WHITE" glyphName="ACCOUNT_CIRCLE" layoutX="32.0" layoutY="34.0" size="34" wrappingWidth="31.0" />
          </children>
       </Pane>
-      <Label alignment="CENTER" layoutX="21.0" layoutY="20.0" minHeight="40.0" prefHeight="40.0" prefWidth="1134.0" style="-fx-background-color: #fff; -fx-background-radius: 5px  15px 0px 5px; -fx-border-radius: 5px  15px 0px 5px; -fx-border-color: #999;" text="مليون وستة مئة دينار" textFill="#888888">
+      <Label alignment="CENTER" minHeight="40.0" prefHeight="40.0" prefWidth="1134.0" style="-fx-background-color: #fff; -fx-background-radius: 5px  15px 0px 5px; -fx-border-radius: 5px  15px 0px 5px; -fx-border-color: #999;" text="مليون وستة مئة دينار" textFill="#888888">
          <padding>
             <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
          </padding>
@@ -129,5 +129,6 @@
             <DropShadow color="#bbbbbb" height="20.0" offsetY="1.0" radius="9.5" width="20.0" />
          </effect>
       </Label>
+      <Pane fx:id="pnlMarquee" layoutX="12.0" layoutY="12.0" prefHeight="40.0" prefWidth="711.0" />
    </children>
 </AnchorPane>

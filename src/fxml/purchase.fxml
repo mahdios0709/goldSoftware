@@ -168,7 +168,7 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="222.0" prefWidth="289.0">
                      <children>
-                        <TableView fx:id="clientsTableView" layoutX="128.0" layoutY="114.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="308.0" prefWidth="374.0">
+                        <TableView fx:id="clientsTableView" layoutX="128.0" layoutY="114.0" nodeOrientation="RIGHT_TO_LEFT" onMouseClicked="#clientSelected" prefHeight="308.0" prefWidth="374.0">
                           <columns>
                             <TableColumn fx:id="clientNameTable" prefWidth="244.0" text="اسم الزبون" />
                             <TableColumn fx:id="phoneNumberTable" prefWidth="129.0" text="رقم الهاتف" />

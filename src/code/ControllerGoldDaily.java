@@ -61,12 +61,17 @@ public class ControllerGoldDaily implements Initializable {
        try (Connection con = Connecter.getConnection(); Statement st = con.createStatement()) {
            ResultSet rs1 = st.executeQuery("select id FROM goldprices WHERE ((SELECT `goldType` FROM `goldtype` WHERE `goldType`='"+ typeTemp +"')='"+typeTemp+"' AND idKara="+caliberTemp+")");
                    if(rs1.next()){
-                       st.executeUpdate("UPDATE `goldprices` SET   `date`=CURRENT_TIMESTAMP(), `price`="+priceTemp+" ");
+                       st.executeUpdate("UPDATE `goldprices` SET   `date`=CURRENT_TIMESTAMP(), `price`="+priceTemp+" WHERE  (SELECT `goldType` FROM `goldtype` WHERE `goldType`='"+ typeTemp +"')='"+typeTemp+"' AND idKara="+caliberTemp);
+
                    }else {
                        st.executeUpdate("INSERT  IGNORE INTO `goldprices`( `idKara`, `idGoldType`, `date`, `price`) "
                                + "VALUES(" + caliberTemp + ",(SELECT `id` FROM `goldtype` WHERE `goldType`='" + typeTemp + "'),CURRENT_TIMESTAMP()," + priceTemp + ") ON DUPLICATE KEY UPDATE price=" + priceTemp + ";");
+
                    }
-                   rs1.close();
+                   st.executeUpdate("INSERT INTO `goldarchive`(`idKara`, `goldType`, `date`, `price`) VALUES ("
+                   + caliberTemp + ",'" + typeTemp + "',CURRENT_TIMESTAMP()," + priceTemp + ");");
+
+           rs1.close();
            new DialogOption().DialogOptionINFORMATION("تم الاضافة بنجاح", "نجاح العملية");
 
            loadData();

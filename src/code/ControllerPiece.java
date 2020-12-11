@@ -151,15 +151,23 @@ public class ControllerPiece implements Initializable {
                         pst.close();
 
                     }
+                    new DialogOption().DialogOptionINFORMATION("تم الإظافة بنجاح","إظافة");
+
                 }catch (SQLException | FileNotFoundException throwables) {
                     throwables.printStackTrace();
+                    new DialogOption().DialogOptionERROR("حدث خطأ يرجى الإتصال بالمبرمج","خطاء");
+
                 }
             }
         }else{
             if (karaNumber.getSelectionModel().isEmpty()||goldType.getSelectionModel().isEmpty()||pieceNumber.getText().isEmpty()||pieceWeight.getText().isEmpty()){
                 // messege d'erreur please fill the gaps
+                new DialogOption().DialogOptionERROR("ادخل جميع الحقول","خطاء");
+
             }else if(dejaExist==1){
                 // messege d'erreur deja existe dans la base de donné
+                new DialogOption().DialogOptionERROR("رقم القطعة موجودة","خطاء");
+
             }else{
         //        Calendar now=Calendar.getInstance();
             //    nowDate= Date.valueOf(now.get(Calendar.YEAR)+"-"+(now.get(Calendar.MONTH)+2)+"-"+now.get(Calendar.DATE));
@@ -192,8 +200,21 @@ public class ControllerPiece implements Initializable {
                         pst.execute();
                         pst.close();
                     }
+                    new DialogOption().DialogOptionINFORMATION("تم الإظافة بنجاح","إظافة");
+                    pieceNumber.clear();
+                    pieceWeight.clear();
+                    karaNumber.getSelectionModel().clearSelection();
+                    goldType.getSelectionModel().clearSelection();
+                    withStone.setSelected(false);
+                    stoneName.clear();
+                    stonePrice.clear();
+                    file1=null;
+                    Image imagelogo=new Image("img/logo.png");
+                    imagePiece.setImage(imagelogo);
                 }catch (SQLException | FileNotFoundException throwables) {
                     throwables.printStackTrace();
+                    new DialogOption().DialogOptionERROR("رقم القطعة موجودة","خطاء");
+
                 }
             }
         }
@@ -226,8 +247,22 @@ public class ControllerPiece implements Initializable {
                     pst.setInt(1,idDelete);
                     pst.execute();
                     pst.close();
+                    new DialogOption().DialogOptionINFORMATION("تم الحذف بنجاح","حذف");
+                    pieceNumber.clear();
+                    pieceWeight.clear();
+                    karaNumber.getSelectionModel().clearSelection();
+                    goldType.getSelectionModel().clearSelection();
+                    withStone.setSelected(false);
+                    stoneName.clear();
+                    stonePrice.clear();
+                    file1=null;
+                    Image imagelogo=new Image("img/logo.png");
+                    imagePiece.setImage(imagelogo);
+
                 } catch (SQLException throwables) {
                     throwables.printStackTrace();
+                    new DialogOption().DialogOptionINFORMATION("حدث خطأ يرجى الإتصال بالمبرمج","خطأ");
+
                 }
                 idDelete=0;
                 addToTable();
@@ -256,6 +291,7 @@ public class ControllerPiece implements Initializable {
                             withStone.setSelected(true);
                             pieceNumber.setText(rs.getString("productCode"));
                             stoneName.setText(rs.getString("mojawharatName"));
+                            goldType.setValue(rs.getString("goldType"));
                             karaNumber.setValue(String.valueOf(rs.getInt("idKara")));
                             stonePrice.setText(String.valueOf(rs.getFloat("mojawharatPrice")));
                             pieceWeight.setText(String.valueOf(rs.getFloat("weight")));
@@ -273,6 +309,8 @@ public class ControllerPiece implements Initializable {
                             withStone.setSelected(false);
                             pieceNumber.setText(rs.getString("productCode"));
                             stoneName.setText(null);
+                            goldType.setValue(rs.getString("goldType"));
+
                             karaNumber.setValue(String.valueOf(rs.getInt("idKara")));
                             stonePrice.setText(null);
                             pieceWeight.setText(String.valueOf(rs.getFloat("weight")));
@@ -298,10 +336,8 @@ public class ControllerPiece implements Initializable {
         }else{
             pieceNumber.clear();
             pieceWeight.clear();
-            karaNumber.getItems().clear();
-            karaNumber.setItems(karaId);
-            goldType.getItems().clear();
-            goldType.setItems(karaId);
+            karaNumber.getSelectionModel().clearSelection();
+            goldType.getSelectionModel().clearSelection();
             withStone.setSelected(false);
             stoneName.clear();
             stonePrice.clear();
@@ -318,8 +354,9 @@ public class ControllerPiece implements Initializable {
         int size=0;
         try {
             con = Connecter.getConnection();
-            pst = con.prepareStatement("SELECT * FROM `productmag` WHERE `productCode`=?");
+            pst = con.prepareStatement("SELECT * FROM `productmag` WHERE `productCode`=? AND id!=?");
             pst.setString(1,pieceNumber.getText());
+            pst.setInt(2,pieceTableView.getItems().get(pieceTableView.getSelectionModel().getSelectedIndex()).getId());
             rs=pst.executeQuery();
             while(rs.next()){
                 size++;
@@ -335,8 +372,12 @@ public class ControllerPiece implements Initializable {
         if (withStone.isSelected()){
             if (karaNumber.getSelectionModel().isEmpty()||goldType.getSelectionModel().isEmpty()||pieceNumber.getText().isEmpty()||pieceWeight.getText().isEmpty()||stoneName.getText().isEmpty()||stonePrice.getText().isEmpty()){
                 // messege d'erreur please fill the gaps
+                new DialogOption().DialogOptionERROR("ادخل جميع الحقول","خطاء");
+
             }else if(dejaExist==1){
                 // messege d'erreur deja existe dans la base de donné
+                new DialogOption().DialogOptionERROR("رقم القطعة موجود من قبل","خطاء");
+
             }else{
                 int index = pieceTableView.getSelectionModel().getSelectedIndex();
                 int idEdit=pieceTableView.getItems().get(index).getId();
@@ -377,21 +418,34 @@ public class ControllerPiece implements Initializable {
                         pst.close();
 
                     }
-                }catch (SQLException | FileNotFoundException throwables) {
+                     new DialogOption().DialogOptionINFORMATION("تم التعديل بنجاح","تعديل");karaNumber.getSelectionModel().clearSelection();
+                     pieceNumber.clear();
+                     pieceWeight.clear();
+                     karaNumber.getSelectionModel().clearSelection();
+                     goldType.getSelectionModel().clearSelection();
+                     withStone.setSelected(false);
+                     stoneName.clear();
+                     stonePrice.clear();
+                     file1=null;
+                     Image imagelogo=new Image("img/logo.png");
+                     imagePiece.setImage(imagelogo);
+                 }catch (SQLException | FileNotFoundException throwables) {
                     throwables.printStackTrace();
-                }
+                     new DialogOption().DialogOptionERROR("حدث خطأ يرجى الإتصال بالمبرمج","خطاء");
+
+                 }
             }
         }else{
             if (karaNumber.getSelectionModel().isEmpty()||goldType.getSelectionModel().isEmpty()||pieceNumber.getText().isEmpty()||pieceWeight.getText().isEmpty()){
                 // messege d'erreur please fill the gaps
+                new DialogOption().DialogOptionERROR("ادخل جميع الحقول","خطاء");
             }else if(dejaExist==1){
                 // messege d'erreur deja existe dans la base de donné
+                new DialogOption().DialogOptionERROR("رقم القطعة موجود من قبل","خطاء");
             }else{
                 int index = pieceTableView.getSelectionModel().getSelectedIndex();
                 int idEdit=pieceTableView.getItems().get(index).getId();
-                Calendar now=Calendar.getInstance();
-                nowDate= Date.valueOf(now.get(Calendar.YEAR)+"-"+(now.get(Calendar.MONTH)+2)+"-"+now.get(Calendar.DATE));
-               try{
+                try{
                     if (file1!=null){
                         con = Connecter.getConnection();
                         pst = con.prepareStatement("UPDATE `productmag` SET `productCode`=?,`productImage`=?,`weight`=?,`prodcutBarCode`=?,`withMojawharat`=?,`idKara`=?,`idGoldType`=(SELECT id from goldtype WHERE goldType=?),`date`=CURRENT_TIMESTAMP() WHERE `id`=?");
@@ -411,7 +465,7 @@ public class ControllerPiece implements Initializable {
 
                     }else{
                         con = Connecter.getConnection();
-                        pst = con.prepareStatement("UPDATE `productmag` SET `productCode`=?,`weight`=?,`prodcutBarCode`=?,`withMojawharat`=?,`idKara`=?,`idGoldType`=(SELECT id from goldtype WHERE goldType=?),`date`=CURRENT_TIMESTAMP() WHERE `id`=?)");
+                        pst = con.prepareStatement("UPDATE `productmag` SET `productCode`=?,`weight`=?,`prodcutBarCode`=?,`withMojawharat`=?,`idKara`=?,`idGoldType`=(SELECT id from goldtype WHERE goldType=?),`date`=CURRENT_TIMESTAMP() WHERE `id`=?");
                         pst.setString(1,pieceNumber.getText());
                         pst.setString(2,pieceWeight.getText());
                         pst.setString(3,"codebar");
@@ -423,9 +477,22 @@ public class ControllerPiece implements Initializable {
                         pst.execute();
                         pst.close();
                     }
-                }catch (SQLException | FileNotFoundException throwables) {
+                   new DialogOption().DialogOptionINFORMATION("تم التعديل بنجاح","تعديل");
+                    pieceNumber.clear();
+                    pieceWeight.clear();
+                    karaNumber.getSelectionModel().clearSelection();
+                    goldType.getSelectionModel().clearSelection();
+                   withStone.setSelected(false);
+                   stoneName.clear();
+                   stonePrice.clear();
+                   file1=null;
+                   Image imagelogo=new Image("img/logo.png");
+                   imagePiece.setImage(imagelogo);
+               }catch (SQLException | FileNotFoundException throwables) {
                     throwables.printStackTrace();
-                }
+                   new DialogOption().DialogOptionERROR("حدث خطأ يرجى الإتصال بالمبرمج","خطاء");
+
+               }
             }
         }
         addToTable();
@@ -437,8 +504,6 @@ public class ControllerPiece implements Initializable {
         pieceNumber.clear();
         pieceWeight.clear();
         karaNumber.getSelectionModel().clearSelection();
-     //   karaNumber.setItems(karaId);
-      //  goldType.getItems().clear();
         goldType.getSelectionModel().clearSelection();
         withStone.setSelected(false);
         stoneName.clear();
@@ -517,7 +582,7 @@ public class ControllerPiece implements Initializable {
         piecesTable.clear();
         try {
             con = Connecter.getConnection();
-            pst = con.prepareStatement("SELECT * FROM `productmag`,`goldtype` WHERE productmag.idGoldType=goldtype.id");
+            pst = con.prepareStatement("SELECT * FROM `productmag`,`goldtype` WHERE productmag.idGoldType=goldtype.id AND productmag.vendu=0");
             rs= pst.executeQuery();
             while(rs.next()){
                 piecesTable.add(new Piece(rs.getInt("id"),rs.getInt("idGoldType"),rs.getFloat("weight"),rs.getString("productCode"),String.valueOf(rs.getInt("idKara")),rs.getString("goldType"),rs.getString("mojawharatName"),String.valueOf(rs.getFloat("mojawharatPrice")),String.valueOf(rs.getDate("date"))));

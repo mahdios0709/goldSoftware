@@ -5,39 +5,33 @@
  */
 package code;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.net.URL;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
- *
  * @author AbdElFateh
  */
-import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import javafx.scene.control.ToggleGroup;
-import javafx.scene.layout.Pane;
 
 public class MainController implements Initializable {
     @FXML
     private BorderPane mainpane;
+    @FXML
+    private Pane pnlMarquee;
 
-
-
+    @FXML
+    private AnchorPane pnlMain;
 
     @FXML
     private Pane viewpane;
@@ -105,5 +99,16 @@ public class MainController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
         }
+
+
+        Marquee marquee = new Marquee("This is the initialization content that has been chosen to appear...");
+        marquee.setColor("white");
+        marquee.setStyle("-fx-font: bold 20 arial;");
+         marquee.setBoundsFrom(pnlMain);
+        marquee.moveDownBy(7);
+        marquee.setScrollDuration(18);
+
+        pnlMarquee.getChildren().add(marquee);
+        marquee.run();
     }
 }
