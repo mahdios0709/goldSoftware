@@ -27,7 +27,7 @@ public class Connecter {
                new DialogOption().DialogOptionERROR("probléme au dirver de connection jdbc","poblème de  dirver manager");
         }
         try {
-            con=DriverManager.getConnection("jdbc:mysql://localhost:3306/gold","root","");
+            con=DriverManager.getConnection("jdbc:mysql://localhost:3306/gold?useSSL=false","root","akader01");
 
         
         } catch (SQLException ex) {

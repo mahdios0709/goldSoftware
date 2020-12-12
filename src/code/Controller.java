@@ -61,7 +61,7 @@ public class Controller {
 
         try (Connection con = Connecter.getConnection(); Statement st = con.createStatement()) {
 
-        ResultSet    rs = st.executeQuery("SELECT userName ,PASSWORD FROM gold.config where  (userName='" + getUserName() + "' And PASSWORD=SHA('" + pass + "'))");
+        ResultSet    rs = st.executeQuery("SELECT userName ,PASSWORD FROM gold.config where  (userName='" + getUserName() + "' And PASSWORD='" + pass + "')");
             if (rs.next()) {
                     UserName = rs.getString("userName");
                     FXLoader fx = new FXLoader();

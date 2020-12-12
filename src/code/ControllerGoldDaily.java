@@ -8,6 +8,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.text.Text;
 
 import java.math.BigDecimal;
 import java.net.URL;
@@ -24,6 +25,10 @@ public class ControllerGoldDaily implements Initializable {
 
     @FXML
     private ComboBox<String> caliberFiled;
+
+
+    @FXML
+    private Text notif;
 
     @FXML
     private ComboBox<String> typleFiled;
@@ -107,7 +112,8 @@ public class ControllerGoldDaily implements Initializable {
                 data.add(new GoldData(rs.getInt(1), rs.getString(2),rs.getString(3), rs.getString(4)));
             }
         } catch (SQLException ex) {
-            new DialogOption().DialogOptionERROR("حدث خطاء", "خطاء");        }
+            new DialogOption().DialogOptionERROR("حدث خطاء", "خطاء");
+        }
         goldTable.setItems(data);
         assert goldTable.getItems() == data;
 
@@ -116,13 +122,17 @@ public class ControllerGoldDaily implements Initializable {
 
     @FXML
     void isNmbr(KeyEvent event) {
+
         try {
-           new BigDecimal(priceFiled.getText());
+            new BigDecimal(priceFiled.getText());
             priceFiled.setStyle(" -fx-border-color: #45CCB1");
+            notif.setVisible(false);
             event.consume();
+
         }catch (NumberFormatException e){
             priceFiled.setStyle("-fx-border-color:#F66E84 ");
-            new DialogOption().DialogOptionERROR("يقبل الارقام فقط ", "تححقق من الادخال");
+            notif.setVisible(true);
+//            new DialogOption().DialogOptionERROR("يقبل الارقام فقط ", "تححقق من الادخال");
         }
     }
 
