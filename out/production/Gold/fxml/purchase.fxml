@@ -115,7 +115,7 @@
                </graphic>
             </Button>
             <MaterialDesignIconView fill="WHITE" glyphName="CART_OUTLINE" layoutX="290.0" layoutY="30.0" size="30" />
-            <TableView fx:id="purchaseTableView" layoutX="7.0" layoutY="38.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="308.0" prefWidth="460.0" styleClass="titlelabel">
+            <TableView fx:id="purchaseTableView" layoutX="7.0" layoutY="38.0" nodeOrientation="RIGHT_TO_LEFT" onKeyReleased="#deleteOneProduct2" prefHeight="308.0" prefWidth="460.0" styleClass="titlelabel">
                <columns>
                   <TableColumn fx:id="pieceNumberPurchaseTable" prefWidth="64.0" text="رقم القطعة" />
                   <TableColumn fx:id="goldTypePurchaseTable" text="الصنف" />
@@ -134,7 +134,7 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TableView fx:id="pieceTableView" layoutX="2.0" layoutY="34.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="380.0" prefWidth="582.0" AnchorPane.bottomAnchor="19.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="18.0">
+                        <TableView fx:id="pieceTableView" layoutX="2.0" layoutY="34.0" nodeOrientation="LEFT_TO_RIGHT" onKeyReleased="#addPieceToPurchase2" prefHeight="380.0" prefWidth="582.0" AnchorPane.bottomAnchor="19.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="18.0">
                            <columns>
                               <TableColumn fx:id="stoneNameTable" prefWidth="61.0" text="نوع المجوهرة" />
                               <TableColumn fx:id="stonePriceTable" prefWidth="172.0" text="تمن المجوهرة" />

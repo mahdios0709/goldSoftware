@@ -28,6 +28,7 @@ public class Marquee extends Text {
         this.setVisible(false);
         this.setTranslateY(this.maxHeight(0));
         this.setText(text);
+
     }
 
     public void setScrollDuration(int seconds) {

@@ -12,6 +12,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.FileChooser;
 
@@ -314,6 +315,29 @@ public class ControllerPurchase implements Initializable {
         culculerPrixTotal();
     }
 
+
+    @FXML
+    void addPieceToPurchase2(KeyEvent event) {
+        if (event.getText().contains("+")){
+            int dejaExist=0;
+            int index=pieceTableView.getSelectionModel().getSelectedIndex();
+            if (index>=0){
+                for (int i=0;i<purchaseTableView.getItems().size();i++){
+                    if (purchaseTableView.getItems().get(i).getPieceNumber()==pieceTableView.getItems().get(index).getPieceNumber()){
+                        dejaExist=1;
+                    }
+                }
+                if (dejaExist==0){
+                    purchaseTableView.getItems().add(new Purchase(pieceTableView.getItems().get(index).getId(),pieceTableView.getItems().get(index).getPieceNumber(),pieceTableView.getItems().get(index).getGoldType(),pieceTableView.getItems().get(index).getKaraNumber(),String.valueOf(pieceTableView.getItems().get(index).getPieceWeight()),Double.valueOf(pieceTableView.getItems().get(index).getStonePrice())));
+                }else{
+                    new DialogOption().DialogOptionERROR("القطعة موجودة من قبل في قائمة المشتريات","خطاء");
+                }
+
+            }
+            culculerPrixTotal();
+        }
+    }
+
     private void culculerPrixTotal() {
         double prixTotal=0;
         if (purchaseTableView.getItems().size()>0){
@@ -342,6 +366,17 @@ public class ControllerPurchase implements Initializable {
             purchaseTableView.getItems().remove(index);
         }
         culculerPrixTotal();
+    }
+
+    @FXML
+    void deleteOneProduct2(KeyEvent event) {
+        if (event.getText().contains("-")){
+            int index=purchaseTableView.getSelectionModel().getSelectedIndex();
+            if (index>=0){
+                purchaseTableView.getItems().remove(index);
+            }
+            culculerPrixTotal();
+        }
     }
 
     @FXML

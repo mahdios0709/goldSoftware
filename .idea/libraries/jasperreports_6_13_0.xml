@@ -2,8 +2,8 @@
   <library name="jasperreports-6.13.0">
     <CLASSES>
       <root url="jar://$PROJECT_DIR$/lib/jasperreports-6.13.0.jar!/" />
-      <root url="jar://$PROJECT_DIR$/lib/mysql-connector-java-5.1.23-bin.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/fontawesomefx-8.9.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/mysql-connector-java-5.1.49.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

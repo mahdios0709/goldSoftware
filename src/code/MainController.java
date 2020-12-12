@@ -99,16 +99,22 @@ public class MainController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
         }
+            String text="";
+            for (int i=0;i<10;i++){
 
+                text += "||\ttext "+ i+ "\t";
 
-        Marquee marquee = new Marquee("This is the initialization content that has been chosen to appear...");
-        marquee.setColor("white");
-        marquee.setStyle("-fx-font: bold 20 arial;");
-         marquee.setBoundsFrom(pnlMain);
-        marquee.moveDownBy(7);
-        marquee.setScrollDuration(18);
+            }
 
-        pnlMarquee.getChildren().add(marquee);
-        marquee.run();
+            Marquee marquee = new Marquee(text);
+            marquee.setColor("#999");
+            marquee.setStyle("-fx-font: bold 20 arial;");
+            marquee.setBoundsFrom(pnlMain);
+            marquee.moveDownBy(7);
+            marquee.setScrollDuration(25);
+
+            pnlMarquee.getChildren().add(marquee);
+            marquee.run();
+
     }
 }
