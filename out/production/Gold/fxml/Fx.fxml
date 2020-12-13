@@ -6,22 +6,23 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="pnlMain" nodeOrientation="LEFT_TO_RIGHT" prefHeight="692.0" prefWidth="1342.0" stylesheets="@../css/Style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="code.MainController">
+<AnchorPane nodeOrientation="LEFT_TO_RIGHT" prefHeight="692.0" prefWidth="1342.0" stylesheets="@../css/Style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="code.MainController">
    <children>
-      <Pane fx:id="pnlMarquee" minHeight="40.0" prefHeight="40.0" prefWidth="1134.0" style="-fx-background-color: #fff; -fx-background-radius: 5px  15px 0px 5px; -fx-border-radius: 5px  15px 0px 5px; -fx-border-color: #999;">
-         <padding>
-            <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
-         </padding>
-      </Pane>
-      <BorderPane fx:id="mainpane" layoutX="1.0" layoutY="40.0" prefHeight="643.0" prefWidth="1333.0" style="-fx-background-color: #fff;" AnchorPane.leftAnchor="1.0">
+      <BorderPane fx:id="mainpane" layoutX="22.0" layoutY="68.0" prefHeight="615.0" prefWidth="1312.0" style="-fx-background-color: #fff;">
          <center>
-            <Pane fx:id="viewpane" minWidth="-Infinity" nodeOrientation="RIGHT_TO_LEFT" prefHeight="618.0" prefWidth="1312.0" style="-fx-border-radius: 0 10px 10px 0;" BorderPane.alignment="CENTER" />
-         </center></BorderPane>
+            <Pane fx:id="viewpane" minWidth="-Infinity" nodeOrientation="RIGHT_TO_LEFT" style="-fx-border-radius: 0 10px 10px 0;" BorderPane.alignment="CENTER" />
+         </center>
+         <bottom>
+            <Text fill="#999999" strokeType="OUTSIDE" strokeWidth="0.0" text="، برامج تحت الطلب للاتصال واتس اب ، برامج تحت الطلب للاتصال واتس اب تصميم وانجاز فريق ابداع،  تطبيقات تحت الطلب رقم واتس اب : 07777777777777" wrappingWidth="833.7890625" BorderPane.alignment="CENTER" />
+         </bottom></BorderPane>
       <AnchorPane layoutX="1182.0" layoutY="67.0" prefHeight="615.0" prefWidth="182.0" style="-fx-background-color: #579688;">
          <children>
             <ToggleButton alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="1.0" layoutY="120.0" mnemonicParsing="false" onAction="#home" prefHeight="30.0" prefWidth="200.0" selected="true" styleClass="btnfx" text="رئيسية">
@@ -109,7 +110,7 @@
       </AnchorPane>
       <Pane layoutX="1182.0" layoutY="20.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="214.0">
          <children>
-            <Label alignment="CENTER" layoutX="12.0" layoutY="-6.0" prefHeight="53.0" prefWidth="202.0" style="-fx-background-color: #579688; -fx-background-radius: 0% 50% 0% 0%;" textFill="#fcfcfc">
+            <Label alignment="CENTER" layoutX="13.0" layoutY="-6.0" prefHeight="53.0" prefWidth="202.0" style="-fx-background-color: #579688; -fx-background-radius: 0% 50% 0% 0%;" textFill="#fcfcfc">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
@@ -122,5 +123,36 @@
             <MaterialDesignIconView fill="WHITE" glyphName="ACCOUNT_CIRCLE" layoutX="32.0" layoutY="34.0" size="34" wrappingWidth="31.0" />
          </children>
       </Pane>
+      <HBox layoutX="22.0" layoutY="14.0" prefHeight="42.0" prefWidth="1120.0" style="-fx-background-radius: 5px  15px 0px 5px; -fx-border-radius: 5px  15px 0px 5px; -fx-background-color: #fff; -fx-border-color: #999;">
+         <children>
+            <Label fx:id="phone" alignment="CENTER" minHeight="40.0" prefHeight="40.0" prefWidth="284.0" text="الهاتف 077777777" textFill="#888888">
+               <padding>
+                  <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+               </padding>
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="mag" alignment="CENTER" layoutX="10.0" layoutY="10.0" minHeight="40.0" prefHeight="40.0" prefWidth="516.0" text="محلات:" textFill="#888888">
+               <padding>
+                  <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+               </padding>
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="dateFiled" alignment="CENTER" layoutX="394.0" layoutY="10.0" minHeight="40.0" prefHeight="40.0" prefWidth="303.0" text="الأحد 12 ديسمبر 2020" textFill="#888888">
+               <padding>
+                  <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+               </padding>
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+         </children>
+         <effect>
+            <DropShadow color="#b9b9b9" height="20.0" offsetY="1.0" radius="9.5" width="20.0" />
+         </effect>
+      </HBox>
    </children>
 </AnchorPane>

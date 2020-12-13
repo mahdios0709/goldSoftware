@@ -16,6 +16,14 @@ import javafx.scene.layout.Pane;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.text.DateFormat;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
+import java.util.Locale;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -27,16 +35,18 @@ import java.util.logging.Logger;
 public class MainController implements Initializable {
     @FXML
     private BorderPane mainpane;
-    @FXML
-    private Pane pnlMarquee;
-
-    @FXML
-    private AnchorPane pnlMain;
 
     @FXML
     private Pane viewpane;
 
+    @FXML
+    private Label phone;
 
+    @FXML
+    private Label mag;
+
+    @FXML
+    private Label dateFiled;
 
     @FXML
     private Label userName;
@@ -99,22 +109,26 @@ public class MainController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
         }
-            String text="";
-            for (int i=0;i<10;i++){
 
-                text += "||\ttext "+ i+ "\t";
 
+        loadData();
+
+    }
+
+    private void loadData() {
+
+
+        java.util.Locale locale = new Locale( "ar", "SA" ); // ( language code, country code
+        DateFormat df = DateFormat.getDateInstance(DateFormat.LONG, locale);
+        dateFiled.setText(df.format(new Date()));
+
+        try (Connection con = Connecter.getConnection(); Statement st = con.createStatement(); ResultSet rs = st.executeQuery("SELECT  `magazinName`,`phoneNumber`  FROM `config`")) {
+
+            while (rs.next()) {
+                 mag.setText(rs.getString(1));
+                phone.setText(rs.getString(2));
             }
-
-            Marquee marquee = new Marquee(text);
-            marquee.setColor("#999");
-            marquee.setStyle("-fx-font: bold 20 arial;");
-            marquee.setBoundsFrom(pnlMain);
-            marquee.moveDownBy(7);
-            marquee.setScrollDuration(25);
-
-            pnlMarquee.getChildren().add(marquee);
-            marquee.run();
-
+        } catch (SQLException ex) {
+            new DialogOption().DialogOptionERROR("حدث خطاء", "خطاء");        }
     }
 }

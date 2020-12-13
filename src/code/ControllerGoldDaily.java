@@ -141,7 +141,7 @@ public class ControllerGoldDaily implements Initializable {
 
         try (Connection con = Connecter.getConnection(); Statement st = con.createStatement()) {
             ResultSet rs;
-            rs = st.executeQuery("SELECT  `goldType`FROM `goldtype`");
+            rs = st.executeQuery("SELECT `goldType` FROM `goldtype`");
 
             while (rs.next()) {
 

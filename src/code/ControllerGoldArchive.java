@@ -17,6 +17,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 
@@ -95,7 +97,8 @@ public class ControllerGoldArchive implements Initializable {
                 data.add(new GoldData(rs.getInt(1), rs.getString(2),rs.getString(3), rs.getString(4)));
             }
         } catch (SQLException ex) {
-            new DialogOption().DialogOptionERROR("حدث خطاء", "خطاء");        }
+//            new DialogOption().DialogOptionERROR("حدث خطاء", "خطاء");
+        }
         goldTable.setItems(data);
         assert goldTable.getItems() == data;
 
@@ -105,7 +108,7 @@ public class ControllerGoldArchive implements Initializable {
     @FXML
     void isNmbr(KeyEvent event) {
         try {
-           new BigDecimal(priceFiled.getText());
+            new BigDecimal(priceFiled.getText());
             priceFiled.setStyle(" -fx-border-color: #45CCB1");
             event.consume();
         }catch (NumberFormatException e){
@@ -126,23 +129,33 @@ public class ControllerGoldArchive implements Initializable {
 
     @FXML
     void search(ActionEvent event) {
-        System.out.println(("SELECT `idKara`, `goldType`, `date`, `price`  FROM `goldarchive` WHERE   (`idKara` LIKE '%"+caliberFiled.getSelectionModel().getSelectedItem()+"%') OR (`goldType` LIKE '%"+typeFiled.getSelectionModel().getSelectedItem()+"%') OR (`date`  LIKE '%"+dateFiled.getValue()+"%') OR (`price` LIKE '%"+priceFiled.getText()+"%') ORDER BY date"));
         String idKaraTemp=caliberFiled.getSelectionModel().getSelectedItem(), typeTemp=typeFiled.getSelectionModel().getSelectedItem(),dateTemp=dateFiled.getValue()+"",priceTemp=priceFiled.getText();
-        if(!idKaraTemp.isEmpty()) idKaraTemp=" (`idKara` LIKE '%"+idKaraTemp+"%')";
-        if(!typeTemp.isEmpty())typeTemp="(`goldType` LIKE '%"+typeTemp+"%')";
-        if(!priceTemp.isEmpty())typeTemp="(`goldType` LIKE '%"+priceTemp+"%')";
-        if(!dateTemp.isEmpty())typeTemp="(`goldType` LIKE '%"+dateTemp+"%')";
-        goldTable.getItems().clear();
-        ObservableList<GoldData> data = FXCollections.observableArrayList();
-        try (Connection con = Connecter.getConnection(); Statement st = con.createStatement(); ResultSet rs = st.executeQuery("SELECT `idKara`, `goldType`, `date`, `price`  FROM `goldarchive` WHERE   "+idKaraTemp+" OR "+typeTemp+" OR "+dateTemp+" OR "+priceTemp+" ORDER BY date")) {
+        List<String> args =new ArrayList<String>();
 
-            while (rs.next()) {
-                data.add(new GoldData(rs.getInt(1), rs.getString(2),rs.getString(3), rs.getString(4)));
-            }
-        } catch (SQLException ex) {
-            new DialogOption().DialogOptionERROR("حدث خطاء", "خطاء");        }
-        goldTable.setItems(data);
-        assert goldTable.getItems() == data;
+        if(idKaraTemp!=null){  args.add("(`idKara` LIKE '%"+idKaraTemp+"%')");}
+        if(typeTemp!=null) {    args.add("(`goldType` LIKE '%"+typeTemp+"%')");}
+        if(!priceTemp.isEmpty()){args.add("(`price` LIKE '%"+priceTemp+"%')");}
+        if(dateTemp.isEmpty()){args.add("(`date` LIKE '%"+dateTemp+"%')");}
+         if(!args.isEmpty()) {
+             goldTable.getItems().clear();
+             String query = args.get(0);
+             for (int i = 1; i < args.size(); i++) {
+                 query = query + " OR " + args.get(i);
+             }
+             ObservableList<GoldData> data = FXCollections.observableArrayList();
+             try (Connection con = Connecter.getConnection(); Statement st = con.createStatement(); ResultSet rs = st.executeQuery("SELECT `idKara`, `goldType`, `date`, `price`  FROM `goldarchive` WHERE   " + query + " ORDER BY date")) {
+
+                 while (rs.next()) {
+                     data.add(new GoldData(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4)));
+                 }
+             } catch (SQLException ex) {
+                 new DialogOption().DialogOptionERROR("حدث خطاء", "خطاء");
+             }
+             goldTable.setItems(data);
+             assert goldTable.getItems() == data;
+         }else{
+             new DialogOption().DialogOptionINFORMATION("لم تقم بادخال اي من الحقول", "لم تدخل بيانات");
+         }
     }
     private void typeGoldCombox() {
 
