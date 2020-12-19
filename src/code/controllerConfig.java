@@ -78,7 +78,7 @@ public class controllerConfig implements Initializable {
                 pst.setString(6,nmbrPhone.getText());
                 pst.setString(7,adresseMag.getText());
             }else{
-                pst = con.prepareStatement("UPDATE `config` SET `userName`=?,`password`=?,`magazinName`=?,`bossName`=?,`phoneNumber`=?,`address`=? WHERE 1");
+                pst = con.prepareStatement("UPDATE `config` SET `userName`=?,`password`=SHA(?),`magazinName`=?,`bossName`=?,`phoneNumber`=?,`address`=? WHERE 1");
                 pst.setString(1,user.getText());
                 pst.setString(2,password.getText());
                 pst.setString(3,nomMag.getText());

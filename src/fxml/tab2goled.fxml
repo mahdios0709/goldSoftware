@@ -9,53 +9,14 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane id="AnchorPane" nodeOrientation="LEFT_TO_RIGHT" prefHeight="608.0" prefWidth="1145.0" stylesheets="@../css/Style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="code.ControllerGoldDaily">
    <children>
-      <Pane layoutX="741.0" layoutY="21.0" prefHeight="184.0" prefWidth="330.0" style="-fx-border-color: #b2b2b2;">
+      <Pane layoutX="741.0" layoutY="21.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="85.0" prefWidth="1065.0" style="-fx-border-color: #b2b2b2;" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="21.0">
          <children>
-            <VBox layoutX="59.0" layoutY="7.0" prefHeight="172.0" prefWidth="197.0">
-               <children>
-                  <Text fill="#888888" strokeType="OUTSIDE" strokeWidth="0.0" text="العيار" textAlignment="CENTER" wrappingWidth="197.3076171875">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                     </VBox.margin>
-                  </Text>
-                  <ComboBox fx:id="caliberFiled" nodeOrientation="RIGHT_TO_LEFT" prefHeight="30.0" prefWidth="200.0" promptText="عيار" style="-fx-background-color: #fff; -fx-border-color: #777;" />
-                  <Text fill="#888888" strokeType="OUTSIDE" strokeWidth="0.0" text="الصنف" textAlignment="CENTER" wrappingWidth="197.2626953125">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                     </VBox.margin>
-                  </Text>
-                  <ComboBox fx:id="typleFiled" nodeOrientation="RIGHT_TO_LEFT" prefHeight="30.0" prefWidth="200.0" promptText="صنف" style="-fx-background-color: #fff; -fx-border-color: #777;" />
-                  <Text fill="#888888" strokeType="OUTSIDE" strokeWidth="0.0" text="السعر" textAlignment="CENTER" wrappingWidth="197.783203125">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                     </VBox.margin>
-                  </Text>
-                  <TextField fx:id="priceFiled" alignment="CENTER" onKeyReleased="#isNmbr" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #fff; -fx-border-color: #777;">
-                     <padding>
-                        <Insets left="10.0" right="10.0" />
-                     </padding>
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </TextField>
-               </children>
-            </VBox>
-            <Button contentDisplay="RIGHT" layoutX="5.0" layoutY="148.0" mnemonicParsing="false" onAction="#insert" style="-fx-background-color: #fff; -fx-border-color: #4f88f1;" textFill="#4f88f1">
+            <Button contentDisplay="RIGHT" layoutX="1003.0" layoutY="29.0" mnemonicParsing="false" onAction="#insert" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: #fff; -fx-border-color: #4f88f1;" textFill="#4f88f1">
                <graphic>
                   <FontAwesomeIconView fill="#4f88f1" glyphName="PLUS_SQUARE" size="20" />
                </graphic>
@@ -63,13 +24,38 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
+            <ComboBox fx:id="caliberFiled" layoutX="92.0" layoutY="29.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="30.0" prefWidth="200.0" promptText="عيار" style="-fx-background-color: #fff; -fx-border-color: #777;" />
+            <Text fill="#888888" layoutX="42.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="العيار :" wrappingWidth="64.00000316649675">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <TextField fx:id="priceFiled" alignment="CENTER" layoutX="762.0" layoutY="29.0" onKeyReleased="#isNmbr" prefHeight="30.0" prefWidth="200.0" promptText="السعر" style="-fx-background-color: #fff; -fx-border-color: #777;">
+               <padding>
+                  <Insets left="10.0" right="10.0" />
+               </padding>
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextField>
+            <Text fill="#888888" layoutX="707.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="السعر :" wrappingWidth="63.99997627362609">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <ComboBox fx:id="typleFiled" layoutX="433.0" layoutY="29.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="30.0" prefWidth="200.0" promptText="صنف" style="-fx-background-color: #fff; -fx-border-color: #777;" />
+            <Text fill="#888888" layoutX="362.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" الصنف :" textAlignment="CENTER" wrappingWidth="63.99998053908348">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
          </children>
       </Pane>
-      <TableView fx:id="goldTable" layoutX="82.0" layoutY="21.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="375.0" prefWidth="640.0" AnchorPane.bottomAnchor="212.0" AnchorPane.leftAnchor="82.0" AnchorPane.rightAnchor="423.0" AnchorPane.topAnchor="21.0">
+      <TableView fx:id="goldTable" layoutX="82.0" layoutY="134.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="444.0" prefWidth="1085.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="134.0">
         <columns>
           <TableColumn fx:id="caliber" prefWidth="127.5" text="العيار" />
-          <TableColumn fx:id="type" prefWidth="176.0" text="الصنف" />
-            <TableColumn fx:id="price" prefWidth="176.0" text="السعر" />
+          <TableColumn fx:id="type" prefWidth="272.0" text="الصنف" />
+            <TableColumn fx:id="price" prefWidth="269.0" text="السعر" />
             <TableColumn fx:id="dateGold" prefWidth="158.0" text="التاريخ" />
         </columns>
          <columnResizePolicy>

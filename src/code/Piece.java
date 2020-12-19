@@ -1,14 +1,13 @@
 package code;
 
-import java.sql.Date;
 
 public class Piece {
 
     private int id,idGoldType;
     private Float pieceWeight;
-    private String pieceNumber,karaNumber,goldType,stoneName,stonePrice,date;
+    private String pieceNumber,karaNumber,goldType,stoneName,stonePrice,date,totalPriceOfPiece;
 
-    public Piece(int id, int idGoldType, Float pieceWeight, String pieceNumber, String karaNumber, String goldType, String stoneName, String stonePrice, String date) {
+    public Piece(int id, int idGoldType, Float pieceWeight, String pieceNumber, String karaNumber, String goldType, String stoneName, String stonePrice, String date, String totalPriceOfPiece) {
         this.id = id;
         this.idGoldType = idGoldType;
         this.pieceWeight = pieceWeight;
@@ -18,6 +17,11 @@ public class Piece {
         this.stoneName = stoneName;
         this.stonePrice = stonePrice;
         this.date = date;
+        this.totalPriceOfPiece = totalPriceOfPiece;
+    }
+
+    public String getTotalPriceOfPiece() {
+        return totalPriceOfPiece;
     }
 
     public int getId() {

@@ -24,10 +24,10 @@ import java.util.ResourceBundle;
 
 public class ControllerGoldArchive implements Initializable {
     @FXML
-    private ChoiceBox<String> caliberFiled;
+    private ComboBox<String> caliberFiled;
 
     @FXML
-    private ChoiceBox<String> typeFiled;
+    private ComboBox<String> typeFiled;
 
     @FXML
     private DatePicker dateFiled;
@@ -129,18 +129,19 @@ public class ControllerGoldArchive implements Initializable {
 
     @FXML
     void search(ActionEvent event) {
-        String idKaraTemp=caliberFiled.getSelectionModel().getSelectedItem(), typeTemp=typeFiled.getSelectionModel().getSelectedItem(),dateTemp=dateFiled.getValue()+"",priceTemp=priceFiled.getText();
+        String idKaraTemp=caliberFiled.getSelectionModel().getSelectedItem(), typeTemp=typeFiled.getSelectionModel().getSelectedItem(),priceTemp=priceFiled.getText();
+
         List<String> args =new ArrayList<String>();
 
         if(idKaraTemp!=null){  args.add("(`idKara` LIKE '%"+idKaraTemp+"%')");}
         if(typeTemp!=null) {    args.add("(`goldType` LIKE '%"+typeTemp+"%')");}
         if(!priceTemp.isEmpty()){args.add("(`price` LIKE '%"+priceTemp+"%')");}
-        if(dateTemp.isEmpty()){args.add("(`date` LIKE '%"+dateTemp+"%')");}
+        if(dateFiled.getValue()!=null){args.add("(`date` LIKE '%"+dateFiled.getValue()+"%')");}
          if(!args.isEmpty()) {
              goldTable.getItems().clear();
              String query = args.get(0);
              for (int i = 1; i < args.size(); i++) {
-                 query = query + " OR " + args.get(i);
+                 query = query + " AND " + args.get(i);
              }
              ObservableList<GoldData> data = FXCollections.observableArrayList();
              try (Connection con = Connecter.getConnection(); Statement st = con.createStatement(); ResultSet rs = st.executeQuery("SELECT `idKara`, `goldType`, `date`, `price`  FROM `goldarchive` WHERE   " + query + " ORDER BY date")) {

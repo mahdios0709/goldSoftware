@@ -120,6 +120,12 @@ and open the temp late in the editor.
     -fx-border-color:   #999  ;
     -fx-border-width: 1px ;
 }
+.marque{
+-fx-background-color:#fff;
+-fx-background-radius: 5px  15px 0px 5px;
+-fx-border-radius: 5px  15px 0px 5px;
+-fx-border-color: #999;
+}
 /*new design */
 .hyperlink{
     -fx-text-fill: #cb0006;

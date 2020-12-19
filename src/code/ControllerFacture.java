@@ -10,6 +10,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
@@ -28,6 +29,10 @@ public class ControllerFacture implements Initializable {
 
     ObservableList facturesTable=FXCollections.observableArrayList();
     ObservableList productsFacturesTable=FXCollections.observableArrayList();
+
+
+    @FXML
+    private TextField search;
 
     @FXML
     private TableView<Piece> pieceTableView;
@@ -62,6 +67,9 @@ public class ControllerFacture implements Initializable {
     private TableColumn<Facture, String> factureNumberTable;
 
     @FXML
+    private TableColumn<Facture, String> factureTypeTable;
+
+    @FXML
     private TableColumn<Facture, String> clientNameTable;
 
     @FXML
@@ -78,9 +86,10 @@ public class ControllerFacture implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         addToTable();
         factureNumberTable.setCellValueFactory(new PropertyValueFactory<>("idFacture"));
+        factureTypeTable.setCellValueFactory(new PropertyValueFactory<>("paymentType"));
         clientNameTable.setCellValueFactory(new PropertyValueFactory<>("clientName"));
         clientNumberTable.setCellValueFactory(new PropertyValueFactory<>("clientNumber"));
-        totalPriceTable.setCellValueFactory(new PropertyValueFactory<>("totalPrice"));
+        totalPriceTable.setCellValueFactory(new PropertyValueFactory<>("prixTotal"));
         factureDateTable.setCellValueFactory(new PropertyValueFactory<>("dateFacture"));
         factureTableView.setItems(facturesTable);
 
@@ -104,7 +113,7 @@ public class ControllerFacture implements Initializable {
             pst = con.prepareStatement("SELECT * FROM `factures`,`clients` WHERE factures.idClient=clients.id ORDER BY factures.id DESC");
             rs= pst.executeQuery();
             while(rs.next()){
-                facturesTable.add(new Facture(rs.getInt(1),rs.getInt(2),rs.getString(5),rs.getString(6),rs.getString(3),CalculerPrixTotal(rs.getInt(1))));
+                facturesTable.add(new Facture(rs.getInt("id"),rs.getInt("idClient"),rs.getString("clientName"),rs.getString("clientNumber"),String.valueOf(rs.getDate("dateFacture")),rs.getString("priceF"),rs.getString("priceR"),rs.getString("paymentType")));
             }
             pst.close();
 
@@ -129,7 +138,12 @@ public class ControllerFacture implements Initializable {
                 pst.setInt(1,factureTableView.getItems().get(factureTableView.getSelectionModel().getSelectedIndex()).getIdFacture());
                 rs= pst.executeQuery();
                 while(rs.next()){
-                    productsFacturesTable.add(new Piece(rs.getInt("id"),rs.getInt("idGoldType"),rs.getFloat("weight"),rs.getString("productCode"),String.valueOf(rs.getInt("idKara")),rs.getString("goldType"),rs.getString("mojawharatName"),String.valueOf(rs.getFloat("mojawharatPrice")),String.valueOf(rs.getDate("date"))));
+                    if(rs.getDouble("price")==0){
+
+                    }else {
+                        productsFacturesTable.add(new Piece(rs.getInt("id"),rs.getInt("idGoldType"),rs.getFloat("weight"),rs.getString("productCode"),String.valueOf(rs.getInt("idKara")),rs.getString("goldType"),rs.getString("mojawharatName"),String.valueOf(rs.getFloat("mojawharatPrice")),String.valueOf(rs.getDate("date")),String.valueOf(rs.getDouble("price")+rs.getDouble("mojawharatPrice"))));
+
+                    }
                 }
                 pst.close();
 
@@ -145,5 +159,28 @@ public class ControllerFacture implements Initializable {
 
     public void printFacture(ActionEvent actionEvent) {
 //        print repport
+    }
+
+    public void search(KeyEvent keyEvent) {
+        String key=search.getText().trim();
+        if (key.isEmpty()){
+            productsFacturesTable.clear();
+            addToTable();
+        }else {
+            productsFacturesTable.clear();
+            facturesTable.clear();
+            try {
+                con = Connecter.getConnection();
+                pst = con.prepareStatement("SELECT * FROM `factures`,`clients` WHERE factures.idClient=clients.id AND (factures.id LIKE '"+key+"' OR clients.clientName LIKE '%"+key+"%' OR clients.clientNumber LIKE '"+key+"')");
+                rs=pst.executeQuery();
+                while(rs.next()){
+                    facturesTable.add(new Facture(rs.getInt("id"),rs.getInt("idClient"),rs.getString("clientName"),rs.getString("clientNumber"),String.valueOf(rs.getDate("dateFacture")),rs.getString("priceF"),rs.getString("priceR"),rs.getString("paymentType")));
+                }
+                pst.close();
+
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+        }
     }
 }

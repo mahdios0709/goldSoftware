@@ -2,7 +2,7 @@
 
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -12,47 +12,47 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" nodeOrientation="LEFT_TO_RIGHT" prefHeight="608.0" prefWidth="1145.0" stylesheets="@../css/Style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="code.ControllerGoldArchive">
+<AnchorPane id="AnchorPane" nodeOrientation="LEFT_TO_RIGHT" prefHeight="608.0" prefWidth="1145.0" style="-fx-background-color: WHITE;" stylesheets="@../css/Style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="code.ControllerGoldArchive">
    <children>
-      <Pane layoutX="207.0" layoutY="21.0" prefHeight="85.0" prefWidth="917.0" style="-fx-border-color: #b2b2b2;">
+      <Pane layoutX="207.0" layoutY="21.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="85.0" prefWidth="917.0" style="-fx-border-color: #b2b2b2;" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="21.0">
          <children>
-            <Text fill="#888888" layoutX="705.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="العيار" textAlignment="CENTER" wrappingWidth="197.3076171875">
+            <Text fill="#888888" layoutX="25.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="العيار :" wrappingWidth="65.78320356458426">
                <font>
                   <Font size="14.0" />
                </font>
             </Text>
-            <ChoiceBox fx:id="caliberFiled" layoutX="700.0" layoutY="40.0" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #fff; -fx-border-color: #777;" />
-            <Text fill="#888888" layoutX="486.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="الصنف" textAlignment="CENTER" wrappingWidth="197.2626953125">
+            <Text fill="#888888" layoutX="250.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="الصنف :" wrappingWidth="54.78320526657626">
                <font>
                   <Font size="14.0" />
                </font>
             </Text>
-            <ChoiceBox fx:id="typeFiled" layoutX="480.0" layoutY="40.0" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #fff; -fx-border-color: #777;" />
-            <Text fill="#888888" layoutX="271.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="السعر" textAlignment="CENTER" wrappingWidth="197.783203125">
+            <Text fill="#888888" layoutX="491.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="السعر :" wrappingWidth="54.783203125">
                <font>
                   <Font size="14.0" />
                </font>
             </Text>
-            <DatePicker fx:id="dateFiled" layoutX="60.0" layoutY="40.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="30.0" prefWidth="190.0" promptText="تاريخ" style="-fx-background-color: #fff; -fx-border-color: #777;" />
-            <Text fill="#888888" layoutX="61.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="التاريخ" textAlignment="CENTER" wrappingWidth="197.783203125">
+            <DatePicker fx:id="dateFiled" layoutX="788.0" layoutY="29.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="30.0" prefWidth="150.0" promptText="تاريخ" style="-fx-background-color: #fff; -fx-border-color: #777;" />
+            <Text fill="#888888" layoutX="740.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="التاريخ :" wrappingWidth="54.78320526657626">
                <font>
                   <Font size="14.0" />
                </font>
             </Text>
-            <Button layoutX="14.0" layoutY="41.0" mnemonicParsing="false" onAction="#search" style="-fx-background-color: #fff; -fx-border-color: #888;">
+            <Button layoutX="986.0" layoutY="29.0" mnemonicParsing="false" onAction="#search" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: #fff; -fx-border-color: #888;">
                <graphic>
                   <FontAwesomeIconView fill="#888888" glyphName="SEARCH" opacity="0.5" size="20" smooth="false" />
                </graphic>
             </Button>
-            <Button layoutX="14.0" layoutY="9.0" mnemonicParsing="false" onAction="#refresh" style="-fx-background-color: #fff;">
+            <Button layoutX="1035.0" layoutY="29.0" mnemonicParsing="false" onAction="#refresh" style="-fx-background-color: #fff; -fx-border-color: #888;">
                <graphic>
                   <FontAwesomeIconView fill="#1e7c3c" glyphName="REFRESH" opacity="0.5" size="20" smooth="false" />
                </graphic>
             </Button>
-            <TextField fx:id="priceFiled" alignment="CENTER" layoutX="267.0" layoutY="40.0" onKeyReleased="#isNmbr" prefHeight="30.0" prefWidth="200.0" promptText="سعر" style="-fx-background-color: #fff; -fx-border-color: #777;" />
+            <TextField fx:id="priceFiled" alignment="CENTER" layoutX="539.0" layoutY="29.0" onKeyReleased="#isNmbr" prefHeight="30.0" prefWidth="150.0" promptText="سعر" style="-fx-background-color: #fff; -fx-border-color: #777;" />
+            <ComboBox fx:id="caliberFiled" layoutX="66.0" layoutY="29.0" prefHeight="30.0" prefWidth="150.0" promptText="العيار" style="-fx-background-color: #FFF; -fx-border-color: #777;" />
+            <ComboBox fx:id="typeFiled" layoutX="305.0" layoutY="29.0" prefHeight="30.0" prefWidth="150.0" promptText="الصنف" style="-fx-background-color: #FFF; -fx-border-color: #777;" />
          </children>
       </Pane>
-      <TableView fx:id="goldTable" layoutX="221.0" layoutY="108.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="430.0" prefWidth="905.0" styleClass="icon">
+      <TableView fx:id="goldTable" layoutX="221.0" layoutY="108.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="430.0" prefWidth="905.0" styleClass="icon" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="134.0">
         <columns>
           <TableColumn fx:id="caliber" prefWidth="132.0" text="العيار" />
           <TableColumn fx:id="type" prefWidth="172.0" text="الصنف" />

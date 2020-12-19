@@ -6,21 +6,25 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="608.0" prefWidth="1145.0" stylesheets="@../css/Style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="code.ControllerPurchase">
+<AnchorPane id="AnchorPane" prefHeight="608.0" prefWidth="1145.0" style="-fx-background-color: white;" stylesheets="@../css/Style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="code.ControllerPurchase">
    <children>
-      <Pane layoutX="24.0" prefHeight="137.0" prefWidth="1107.0">
+      <Pane layoutX="617.0" prefHeight="137.0" prefWidth="514.0">
          <children>
-            <Label alignment="CENTER" layoutY="2.0" minHeight="40.0" prefHeight="40.0" prefWidth="604.0" style="-fx-background-color: linear-gradient(to left, #8de9d5, #32c4c0); -fx-background-radius: 10px 10px 0 0;" text="بالأحرف" textFill="WHITE">
+            <Label alignment="CENTER" layoutX="26.0" layoutY="1.0" minHeight="40.0" prefHeight="40.0" prefWidth="460.0" style="-fx-background-color: linear-gradient(to left, #8de9d5, #32c4c0); -fx-background-radius: 10px 10px 0 0;" text="اجمالي" textFill="WHITE">
                <padding>
                   <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
                </padding>
@@ -28,26 +32,7 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" layoutY="42.0" minHeight="70.0" prefHeight="85.0" prefWidth="604.0" style="-fx-background-color: #fff; -fx-background-radius: 0 0 10px 10px; -fx-border-radius: 0 0 10px 10px; -fx-border-color: #999;" text="مليون وستة مئة دينار" textFill="#888888">
-               <padding>
-                  <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
-               </padding>
-               <font>
-                  <Font name="System Bold" size="24.0" />
-               </font>
-               <effect>
-                  <DropShadow color="#bbbbbb" height="20.0" offsetY="1.0" radius="9.5" width="20.0" />
-               </effect>
-            </Label>
-            <Label alignment="CENTER" layoutX="621.0" layoutY="1.0" minHeight="40.0" prefHeight="40.0" prefWidth="460.0" style="-fx-background-color: linear-gradient(to left, #8de9d5, #32c4c0); -fx-background-radius: 10px 10px 0 0;" text="اجمالي" textFill="WHITE">
-               <padding>
-                  <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
-               </padding>
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-            </Label>
-            <Label fx:id="facturePrice" alignment="CENTER" layoutX="621.0" layoutY="41.0" minHeight="70.0" prefHeight="85.0" prefWidth="460.0" style="-fx-background-color: #555; -fx-background-radius: 0 0 10px 10px; -fx-border-radius: 0 0 10px 10px; -fx-border-color: #999;" text="0.00" textFill="#87ff77">
+            <Label fx:id="facturePrice" alignment="CENTER" layoutX="26.0" layoutY="41.0" minHeight="70.0" prefHeight="85.0" prefWidth="460.0" style="-fx-background-color: #555; -fx-background-radius: 0 0 10px 10px; -fx-border-radius: 0 0 10px 10px; -fx-border-color: #999;" text="0.00" textFill="#87ff77">
                <padding>
                   <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
                </padding>
@@ -58,8 +43,7 @@
                   <DropShadow color="#bbbbbb" height="20.0" offsetY="1.0" radius="9.5" width="20.0" />
                </effect>
             </Label>
-            <FontAwesomeIconView fill="WHITE" glyphName="CALCULATOR" layoutX="915.0" layoutY="30.0" size="30" />
-            <MaterialDesignIconView fill="WHITE" glyphName="CREDIT_CARD" layoutX="340.0" layoutY="33.0" size="30" styleClass="icon" x="5.0" />
+            <FontAwesomeIconView fill="WHITE" glyphName="CALCULATOR" layoutX="320.0" layoutY="30.0" size="30" />
          </children>
       </Pane>
       <Pane layoutX="636.0" layoutY="138.0" prefHeight="470.0" prefWidth="478.0">
@@ -76,7 +60,7 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Button alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="39.0" layoutY="383.0" mnemonicParsing="false" onAction="#confirmFacture" style="-fx-background-color: #fff; -fx-border-color: #0cab34;" text="تأكيد (F3)">
+            <Button fx:id="confirmbutton" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="39.0" layoutY="383.0" mnemonicParsing="false" onAction="#confirmFacture" style="-fx-background-color: #fff; -fx-border-color: #0cab34;" text="تأكيد (F3)">
                <graphic>
                   <FontAwesomeIconView fill="#0cab34" glyphName="CHECK_CIRCLE" size="44" />
                </graphic>
@@ -87,7 +71,7 @@
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="183.0" layoutY="383.0" mnemonicParsing="false" onAction="#printFacture" style="-fx-background-color: #fff; -fx-border-color: #028bfb;" text="طباعة">
+            <Button fx:id="printbutton" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="183.0" layoutY="383.0" mnemonicParsing="false" onAction="#printFacture" style="-fx-background-color: #fff; -fx-border-color: #028bfb;" text="طباعة">
                <graphic>
                   <FontAwesomeIconView fill="#028bfb" glyphName="PRINT" size="44" />
                </graphic>
@@ -98,7 +82,7 @@
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="322.0" layoutY="383.0" mnemonicParsing="false" onAction="#deleteAllProducts" style="-fx-background-color: #fff; -fx-border-color: #dd5353;" text="الغاء" textFill="#dd5353">
+            <Button fx:id="closebutton" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="322.0" layoutY="383.0" mnemonicParsing="false" onAction="#deleteAllProducts" style="-fx-background-color: #fff; -fx-border-color: #dd5353;" text="الغاء" textFill="#dd5353">
                <graphic>
                   <FontAwesomeIconView fill="#dd5353" glyphName="TIMES_CIRCLE" size="44" />
                </graphic>
@@ -109,13 +93,13 @@
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button layoutX="440.0" layoutY="348.0" mnemonicParsing="false" onAction="#deleteOneProduct" prefHeight="31.0" prefWidth="26.0" style="-fx-background-color: #fff; -fx-border-color: #dd5353;">
+            <Button fx:id="deletebutton" layoutX="440.0" layoutY="348.0" mnemonicParsing="false" onAction="#deleteOneProduct" prefHeight="31.0" prefWidth="26.0" style="-fx-background-color: #fff; -fx-border-color: #dd5353;">
                <graphic>
                   <FontAwesomeIconView fill="#dd5353" glyphName="TRASH_ALT" size="24" />
                </graphic>
             </Button>
             <MaterialDesignIconView fill="WHITE" glyphName="CART_OUTLINE" layoutX="290.0" layoutY="30.0" size="30" />
-            <TableView fx:id="purchaseTableView" layoutX="7.0" layoutY="38.0" nodeOrientation="RIGHT_TO_LEFT" onKeyReleased="#deleteOneProduct2" prefHeight="308.0" prefWidth="460.0" styleClass="titlelabel">
+            <TableView fx:id="purchaseTableView" layoutX="7.0" layoutY="38.0" nodeOrientation="RIGHT_TO_LEFT" onKeyReleased="#deleteOneProduct2" onMouseClicked="#deleteOneProduct3" prefHeight="308.0" prefWidth="460.0" styleClass="titlelabel">
                <columns>
                   <TableColumn fx:id="pieceNumberPurchaseTable" prefWidth="64.0" text="رقم القطعة" />
                   <TableColumn fx:id="goldTypePurchaseTable" text="الصنف" />
@@ -128,18 +112,18 @@
                </columnResizePolicy>
             </TableView>
          </children></Pane>
-      <TabPane layoutX="24.0" layoutY="133.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="470.0" prefWidth="604.0" style="-fx-border-color: #777;" tabClosingPolicy="UNAVAILABLE">
+      <TabPane layoutX="24.0" layoutY="4.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="599.0" prefWidth="604.0" style="-fx-border-color: #777;" tabClosingPolicy="UNAVAILABLE">
         <tabs>
-          <Tab text="قطع">
+          <Tab onSelectionChanged="#newfacture" text="فاتورة جديدة">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TableView fx:id="pieceTableView" layoutX="2.0" layoutY="34.0" nodeOrientation="LEFT_TO_RIGHT" onKeyReleased="#addPieceToPurchase2" prefHeight="380.0" prefWidth="582.0" AnchorPane.bottomAnchor="19.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="18.0">
+                        <TableView fx:id="pieceTableView" layoutX="2.0" layoutY="227.0" nodeOrientation="LEFT_TO_RIGHT" onKeyReleased="#addPieceToPurchase2" onMouseClicked="#addPieceToPurchase3" prefHeight="282.0" prefWidth="582.0" AnchorPane.bottomAnchor="18.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="18.0">
                            <columns>
                               <TableColumn fx:id="stoneNameTable" prefWidth="61.0" text="نوع المجوهرة" />
                               <TableColumn fx:id="stonePriceTable" prefWidth="172.0" text="تمن المجوهرة" />
-                              <TableColumn fx:id="pieceWeightTable" prefWidth="43.0" text="الوزن" />
-                              <TableColumn fx:id="karaNumberTable" prefWidth="172.0" text="العيار" />
+                              <TableColumn fx:id="pieceWeightTable" prefWidth="96.0" text="الوزن" />
+                              <TableColumn fx:id="karaNumberTable" prefWidth="97.0" text="العيار" />
                               <TableColumn fx:id="goldTypeTable" prefWidth="311.0" text="الصنف" />
                               <TableColumn fx:id="pieceNumberTable" prefWidth="132.0" text="رقم القطعة" />
                            </columns>
@@ -147,61 +131,153 @@
                               <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                            </columnResizePolicy>
                         </TableView>
-                        <TextField blendMode="DARKEN" cache="true" layoutX="15.0" layoutY="5.0" prefHeight="25.0" prefWidth="237.0" promptText="بحث">
+                        <TextField fx:id="search" blendMode="DARKEN" cache="true" layoutX="345.0" layoutY="222.0" onKeyReleased="#search" prefHeight="25.0" prefWidth="237.0" promptText="بحث">
                            <padding>
                               <Insets bottom="3.0" left="10.0" right="10.0" top="3.0" />
                            </padding>
                         </TextField>
-                        <FontAwesomeIconView fill="#888888" glyphName="SEARCH" layoutX="224.0" layoutY="24.0" opacity="0.5" size="20" smooth="false" />
-                        <Button contentDisplay="RIGHT" layoutX="546.0" layoutY="3.0" mnemonicParsing="false" onAction="#addPieceToPurchase" style="-fx-background-color: #fff; -fx-border-color: #4f88f1;" textFill="#4f88f1">
-                           <graphic>
-                              <FontAwesomeIconView fill="#4f88f1" glyphName="PLUS_SQUARE" size="16" />
-                           </graphic>
+                        <FontAwesomeIconView fill="#888888" glyphName="SEARCH" layoutX="554.0" layoutY="241.0" opacity="0.5" size="20" smooth="false" />
+                        <TableView fx:id="clientsTableView" layoutX="292.0" layoutY="20.0" nodeOrientation="RIGHT_TO_LEFT" onMouseClicked="#clientSelected" prefHeight="159.0" prefWidth="288.0">
+                           <columns>
+                              <TableColumn fx:id="clientNameTable" prefWidth="244.0" text="اسم الزبون" />
+                              <TableColumn fx:id="phoneNumberTable" prefWidth="129.0" text="رقم الهاتف" />
+                           </columns>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                        </TableView>
+                        <Label layoutX="30.0" layoutY="57.0" prefHeight="20.0" prefWidth="79.0" text="رقم الهاتف" textAlignment="RIGHT">
                            <font>
-                              <Font name="System Bold" size="12.0" />
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="31.0" layoutY="6.0" prefHeight="20.0" prefWidth="79.0" text="اسم الزبون" textAlignment="RIGHT">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="29.0" layoutY="187.0" text="مسح البطاقة" textAlignment="RIGHT">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="phoneNumber" alignment="BOTTOM_LEFT" layoutX="25.0" layoutY="79.0" prefHeight="25.0" prefWidth="202.0" promptText="رقم الهاتف" />
+                        <TextField fx:id="clientName" alignment="BOTTOM_LEFT" layoutX="25.0" layoutY="28.0" prefHeight="25.0" prefWidth="202.0" promptText="اسم الزبون" />
+                        <Button layoutX="27.0" layoutY="211.0" mnemonicParsing="false" onAction="#loadImage" style="-fx-background-color: #fff;">
+                           <graphic>
+                              <FontAwesomeIconView fill="#40b584" glyphName="UPLOAD" size="24" />
+                           </graphic>
+                        </Button>
+                        <Label fx:id="imageUploaded" layoutX="93.0" layoutY="219.0" prefHeight="13.0" prefWidth="169.0" text="يرجى إختيار الصورة" />
+                        <RadioButton fx:id="fullpaymente" layoutX="23.0" layoutY="112.0" mnemonicParsing="false" onAction="#hidePrice" selected="true" text="الدفع كامل">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="paymenchoice" />
+                           </toggleGroup></RadioButton>
+                        <RadioButton fx:id="parFacil" layoutX="129.0" layoutY="112.0" mnemonicParsing="false" onAction="#showPrice" text="الدفع بالتقسيط" toggleGroup="$paymenchoice" />
+                        <Pane fx:id="firstPricePane" disable="true" layoutX="25.0" layoutY="131.0" prefHeight="65.0" prefWidth="213.0">
+                           <children>
+                              <Label layoutX="6.0" layoutY="5.0" prefHeight="20.0" prefWidth="79.0" text="السعر الأولي" textAlignment="RIGHT">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="firstPrice" alignment="BOTTOM_LEFT" layoutX="1.0" layoutY="27.0" prefHeight="25.0" prefWidth="202.0" promptText="السعر" />
+                           </children>
+                        </Pane>
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+          <Tab onSelectionChanged="#facilityfacture" text="فواتير البيع بالتقسيط">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="222.0" prefWidth="289.0" style="-fx-background-color: white;">
+                     <children>
+                        <TableView fx:id="factureFacilTableView" layoutX="17.0" layoutY="42.0" onMouseClicked="#addToTableHistoric" prefHeight="212.0" prefWidth="559.0">
+                          <columns>
+                            <TableColumn fx:id="factureNumberFacil" prefWidth="75.0" text="رقم الفاتورة" />
+                            <TableColumn fx:id="clientNameFacil" prefWidth="75.0" text="إسم الزبون" />
+                              <TableColumn fx:id="clientPhoneFacil" prefWidth="75.0" text="رقم الهاتف" />
+                              <TableColumn fx:id="fullPriceFacil" prefWidth="75.0" text="المبلغ الكامل" />
+                              <TableColumn fx:id="restPriceFacil" prefWidth="75.0" text="المبلغ المتبقي" />
+                              <TableColumn fx:id="factureDateFacil" prefWidth="75.0" text="التاريخ" />
+                          </columns>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                        </TableView>
+                        <TextField fx:id="search2" blendMode="DARKEN" cache="true" layoutX="337.0" layoutY="6.0" onKeyReleased="#search2" prefHeight="30.0" prefWidth="237.0" promptText="رقم الفاتورة">
+                           <padding>
+                              <Insets bottom="3.0" left="10.0" right="10.0" top="3.0" />
+                           </padding>
+                        </TextField>
+                        <FontAwesomeIconView fill="#888888" glyphName="SEARCH" layoutX="549.0" layoutY="28.0" opacity="0.5" size="20" smooth="false" />
+                        <TabPane layoutX="15.0" layoutY="267.0" prefHeight="267.0" prefWidth="370.0" style="-fx-background-color: white;" tabClosingPolicy="UNAVAILABLE">
+                          <tabs>
+                              <Tab text="أرشيف الدفع">
+                                <content>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                       <children>
+                                          <TableView fx:id="historicalTableView" layoutX="2.0" layoutY="5.0" prefHeight="223.0" prefWidth="368.0">
+                                            <columns>
+                                              <TableColumn fx:id="priceHistoricalFacil" prefWidth="75.0" text="الثمن" />
+                                              <TableColumn fx:id="dateHistoricalFacil" prefWidth="75.0" text="التاريخ" />
+                                            </columns>
+                                             <columnResizePolicy>
+                                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                             </columnResizePolicy>
+                                          </TableView>
+                                       </children>
+                                    </AnchorPane>
+                                </content>
+                              </Tab>
+                            <Tab text="صورة البطاقة الشخصية">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="165.0" prefWidth="417.0">
+                                       <children>
+                                          <ImageView fx:id="imageCard" fitHeight="219.0" fitWidth="365.0" layoutX="10.0" layoutY="10.0" onMouseClicked="#zoomIn" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                                             <image>
+                                                <Image url="@../img/logo.png" />
+                                             </image></ImageView>
+                                       </children>
+                                    </AnchorPane>
+                              </content>
+                            </Tab>
+                          </tabs>
+                        </TabPane>
+                        <Label layoutX="430.0" layoutY="338.0" prefHeight="20.0" prefWidth="102.0" text="السعر المظاف :" textAlignment="RIGHT">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="priceAddFacil" layoutX="431.0" layoutY="367.0" prefHeight="40.0" prefWidth="122.0" promptText="السعر المظاف" />
+                        <Button alignment="CENTER" contentDisplay="RIGHT" layoutX="431.0" layoutY="432.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#addHistoricalPrices" prefHeight="57.0" prefWidth="122.0" style="-fx-background-color: #fff; -fx-border-color: #0cab34;" text="إظافة">
+                           <graphic>
+                              <FontAwesomeIconView fill="#0cab34" glyphName="CHECK_CIRCLE" size="44" />
+                           </graphic>
+                           <padding>
+                              <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
+                           </padding>
+                           <font>
+                              <Font size="14.0" />
                            </font>
                         </Button>
                      </children></AnchorPane>
             </content>
           </Tab>
-          <Tab text="الزبون">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="222.0" prefWidth="289.0">
-                     <children>
-                        <TableView fx:id="clientsTableView" layoutX="128.0" layoutY="114.0" nodeOrientation="RIGHT_TO_LEFT" onMouseClicked="#clientSelected" prefHeight="308.0" prefWidth="374.0">
-                          <columns>
-                            <TableColumn fx:id="clientNameTable" prefWidth="244.0" text="اسم الزبون" />
-                            <TableColumn fx:id="phoneNumberTable" prefWidth="129.0" text="رقم الهاتف" />
-                          </columns>
-                        </TableView>
-                        <Label layoutX="131.0" layoutY="47.0" prefHeight="20.0" prefWidth="79.0" text="رقم الهاتف" textAlignment="RIGHT">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="131.0" layoutY="13.0" prefHeight="20.0" prefWidth="79.0" text="اسم الزبون" textAlignment="RIGHT">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="136.0" layoutY="83.0" text="مسح البطاقة" textAlignment="RIGHT">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Label>
-                        <TextField fx:id="phoneNumber" alignment="BOTTOM_LEFT" layoutX="216.0" layoutY="45.0" prefHeight="25.0" prefWidth="202.0" promptText="رقم الهاتف" />
-                        <TextField fx:id="clientName" alignment="BOTTOM_LEFT" layoutX="215.0" layoutY="11.0" prefHeight="25.0" prefWidth="202.0" promptText="اسم الزبون" />
-                        <Button layoutX="237.0" layoutY="77.0" mnemonicParsing="false" onAction="#loadImage" style="-fx-background-color: #fff;">
-                           <graphic>
-                              <FontAwesomeIconView fill="#40b584" glyphName="UPLOAD" size="24" />
-                           </graphic>
-                        </Button>
-                        <Label fx:id="imageUploaded" layoutX="305.0" layoutY="85.0" prefHeight="17.0" prefWidth="237.0" text="يرجى إختيار الصورة" />
-                     </children>
-                  </AnchorPane>
-            </content>
-          </Tab>
         </tabs>
       </TabPane>
+      <AnchorPane fx:id="paneZoom" nodeOrientation="RIGHT_TO_LEFT" style="-fx-background-color: rgba(0,0,0,.9);" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Button layoutX="547.0" layoutY="279.0" mnemonicParsing="false" onAction="#closeZoom" style="-fx-background-color: TRANSPARENT;" textFill="TRANSPARENT" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="10.0">
+               <graphic>
+                  <FontAwesomeIconView fill="#971212" glyphName="CLOSE" size="20" />
+               </graphic>
+            </Button>
+            <ImageView fx:id="imageZoom" fitHeight="530.0" layoutX="253.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/logo.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
    </children>  
 </AnchorPane>

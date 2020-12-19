@@ -23,7 +23,6 @@ import javafx.stage.Stage;
  * @author AbdElFateh
  */
 public class FXLoader {
-
     @FXML
     private Pane viewpane;
 
@@ -65,5 +64,6 @@ public class FXLoader {
         stage.show();
         // if(!fileName.equals("DWI"))((Node)(event.getSource())).getScene().getWindow().hide();
     }
+
 
 }

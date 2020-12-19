@@ -11,29 +11,30 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="608.0" prefWidth="1145.0" stylesheets="@../css/Style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="code.ControllerPiece">
+<AnchorPane id="AnchorPane" prefHeight="599.0" prefWidth="1120.0" stylesheets="@../css/Style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="code.ControllerPiece">
    <children>
-      <Pane layoutX="315.0" layoutY="14.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="157.0" prefWidth="790.0" style="-fx-border-color: #b2b2b2;">
+      <Pane nodeOrientation="LEFT_TO_RIGHT" prefHeight="210.0" prefWidth="780.0" style="-fx-border-color: #b2b2b2;" AnchorPane.leftAnchor="315.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="14.0">
          <children>
-            <Label layoutX="696.0" layoutY="19.0" prefWidth="80.0" text="رقم القطعة :" textFill="#777777">
+            <Label layoutX="696.0" layoutY="12.0" prefWidth="80.0" text="رقم القطعة :" textFill="#777777">
                <font>
                   <Font size="14.0" />
                </font></Label>
-            <TextField fx:id="pieceNumber" layoutX="478.0" layoutY="15.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="28.0" prefWidth="201.0" promptText="رقم القطعة">
+            <TextField fx:id="pieceNumber" editable="false" layoutX="478.0" layoutY="8.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="20.0" prefWidth="201.0" promptText="رقم القطعة">
                <padding>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
                <opaqueInsets>
                   <Insets />
                </opaqueInsets></TextField>
-            <TextField fx:id="pieceWeight" layoutX="478.0" layoutY="49.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="28.0" prefWidth="201.0" promptText="الوزن" />
-            <CheckBox fx:id="withStone" alignment="CENTER_RIGHT" layoutX="243.0" layoutY="16.0" mnemonicParsing="false" onAction="#checkWithStone" prefHeight="19.0" prefWidth="170.0" styleClass="radioButton" text="مع الأحجار :" textAlignment="RIGHT" textFill="#777777">
+            <TextField fx:id="pieceWeight" layoutX="478.0" layoutY="38.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="19.0" prefWidth="201.0" promptText="الوزن" />
+            <CheckBox fx:id="withStone" alignment="CENTER_RIGHT" layoutX="239.0" layoutY="69.0" mnemonicParsing="false" onAction="#checkWithStone" prefHeight="19.0" prefWidth="174.0" styleClass="radioButton" text="مع الأحجار :" textAlignment="RIGHT" textFill="#777777">
                <padding>
                   <Insets right="10.0" />
                </padding></CheckBox>
@@ -42,38 +43,38 @@
                   <Font size="14.0" />
                </font>
             </Text>
-            <AnchorPane fx:id="stonePane" disable="true" layoutX="143.0" layoutY="40.0" prefHeight="81.0" prefWidth="293.0">
+            <AnchorPane fx:id="stonePane" disable="true" layoutX="143.0" layoutY="87.0" prefHeight="66.0" prefWidth="293.0">
                <children>
-                  <Label layoutX="198.0" layoutY="9.0" prefWidth="90.0" text="نوع المجوهرة :" textFill="#777777">
+                  <Label layoutX="198.0" layoutY="7.0" prefWidth="90.0" text="نوع المجوهرة :" textFill="#777777">
                      <padding>
                         <Insets bottom="5.0" left="5.0" right="5.0" />
                      </padding>
                   </Label>
-                  <TextField fx:id="stoneName" layoutX="5.0" layoutY="5.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="28.0" prefWidth="190.0" promptText="نوع المجوهرة" />
-                  <TextField fx:id="stonePrice" layoutX="6.0" layoutY="40.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="28.0" prefWidth="190.0" promptText="الثمن" />
-                  <Label layoutX="198.0" layoutY="42.0" prefWidth="90.0" text="الثمن :" textFill="#777777">
+                  <TextField fx:id="stoneName" layoutX="5.0" layoutY="5.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="20.0" prefWidth="190.0" promptText="نوع المجوهرة" />
+                  <TextField fx:id="stonePrice" layoutX="6.0" layoutY="32.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="19.0" prefWidth="190.0" promptText="ثمن المجوهرة" />
+                  <Label layoutX="198.0" layoutY="33.0" prefWidth="90.0" text="الثمن المجوهرة:" textFill="#777777">
                      <padding>
                         <Insets bottom="5.0" left="5.0" right="5.0" />
                      </padding>
                   </Label>
                </children>
             </AnchorPane>
-            <Label layoutX="696.0" layoutY="53.0" prefWidth="80.0" text="الوزن :" textFill="#777777">
+            <Label layoutX="696.0" layoutY="41.0" prefWidth="80.0" text="الوزن :" textFill="#777777">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label layoutX="696.0" layoutY="87.0" prefWidth="80.0" text="العيار :" textFill="#777777">
+            <Label layoutX="696.0" layoutY="99.0" prefWidth="80.0" text="العيار :" textFill="#777777">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label layoutX="696.0" layoutY="120.0" prefWidth="80.0" text="الصنف :" textFill="#777777">
+            <Label layoutX="696.0" layoutY="67.0" prefWidth="80.0" text="الصنف :" textFill="#777777">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Button contentDisplay="RIGHT" layoutX="479.0" layoutY="120.0" mnemonicParsing="false" onAction="#showAddGoldType" prefHeight="25.0" prefWidth="28.0" style="-fx-background-color: #fff; -fx-border-color: #777;" textFill="#777777">
+            <Button contentDisplay="RIGHT" layoutX="479.0" layoutY="67.0" mnemonicParsing="false" onAction="#showAddGoldType" prefHeight="25.0" prefWidth="28.0" style="-fx-background-color: #fff; -fx-border-color: #777;" textFill="#777777">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -81,7 +82,7 @@
                   <FontAwesomeIconView fill="#777777" glyphName="EDIT" size="16" />
                </graphic>
             </Button>
-            <Button contentDisplay="RIGHT" layoutX="159.0" layoutY="119.0" mnemonicParsing="false" onAction="#refresh" style="-fx-background-color: #fff; -fx-border-color: #c2be6a;" textFill="#c2be6a">
+            <Button contentDisplay="RIGHT" layoutX="86.0" layoutY="177.0" mnemonicParsing="false" onAction="#refresh" prefWidth="100.0" style="-fx-background-color: #fff; -fx-border-color: #c2be6a;" text="إعادة تعيين" textFill="#c2be6a">
                <graphic>
                   <FontAwesomeIconView fill="#c2be6a" glyphName="REFRESH" size="20" />
                </graphic>
@@ -89,7 +90,7 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Button contentDisplay="RIGHT" layoutX="301.0" layoutY="119.0" mnemonicParsing="false" onAction="#deletePiece" prefHeight="31.0" prefWidth="29.0" style="-fx-background-color: #fff; -fx-border-color: #f87d7a;" styleClass="error" textFill="#f87d7a">
+            <Button contentDisplay="RIGHT" layoutX="260.0" layoutY="177.0" mnemonicParsing="false" onAction="#deletePiece" prefWidth="100.0" style="-fx-background-color: #fff; -fx-border-color: #f87d7a;" styleClass="error" text="حذف" textFill="#f87d7a">
                <graphic>
                   <FontAwesomeIconView fill="#f87d7a" glyphName="TRASH" size="20" />
                </graphic>
@@ -97,7 +98,7 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Button contentDisplay="RIGHT" layoutX="203.0" layoutY="119.0" mnemonicParsing="false" onAction="#addPiece" style="-fx-background-color: #fff; -fx-border-color: #4f88f1;" textFill="#4f88f1">
+            <Button fx:id="addpiecebutton" contentDisplay="RIGHT" layoutX="609.0" layoutY="177.0" mnemonicParsing="false" onAction="#addPiece" prefWidth="100.0" style="-fx-background-color: #fff; -fx-border-color: #4f88f1;" text="إظافة" textFill="#4f88f1">
                <graphic>
                   <FontAwesomeIconView fill="#4f88f1" glyphName="PLUS_SQUARE" size="20" />
                </graphic>
@@ -105,7 +106,7 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Button contentDisplay="RIGHT" layoutX="252.0" layoutY="119.0" mnemonicParsing="false" onAction="#editPiece" style="-fx-background-color: #fff; -fx-border-color: #44b26a;" textFill="#4fef89">
+            <Button contentDisplay="RIGHT" layoutX="435.0" layoutY="177.0" mnemonicParsing="false" onAction="#editPiece" prefWidth="100.0" style="-fx-background-color: #fff; -fx-border-color: #44b26a;" text="تعديل" textFill="#4fef89">
                <graphic>
                   <FontAwesomeIconView fill="#44b26a" glyphName="PENCIL_SQUARE" size="20" />
                </graphic>
@@ -121,11 +122,32 @@
                   <FontAwesomeIconView fill="#979797" glyphName="UPLOAD" size="40" />
                </graphic>
             </Button>
-            <ComboBox fx:id="karaNumber" layoutX="478.0" layoutY="84.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="28.0" prefWidth="201.0" promptText="نوع العيار" style="-fx-background-color: #fff; -fx-border-color: #777;" />
-            <ComboBox fx:id="goldType" layoutX="515.0" layoutY="119.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="28.0" prefWidth="165.0" promptText="الصنف" style="-fx-background-color: #fff; -fx-border-color: #777;" />
+            <ComboBox fx:id="karaNumber" layoutX="478.0" layoutY="96.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="19.0" prefWidth="201.0" promptText="نوع العيار" style="-fx-background-color: #fff; -fx-border-color: #777;" />
+            <ComboBox fx:id="goldType" layoutX="514.0" layoutY="67.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="19.0" prefWidth="165.0" promptText="الصنف" style="-fx-background-color: #fff; -fx-border-color: #777;" />
+            <CheckBox fx:id="withPricePiece" alignment="CENTER_RIGHT" layoutX="239.0" layoutY="8.0" mnemonicParsing="false" onAction="#checkWithPrice" prefHeight="19.0" prefWidth="174.0" styleClass="radioButton" text="ثمن ثابت للقطعة " textAlignment="RIGHT" textFill="#777777">
+               <padding>
+                  <Insets right="10.0" />
+               </padding>
+            </CheckBox>
+            <Label layoutX="697.0" layoutY="129.0" prefWidth="80.0" text="نوع الذهب :" textFill="#777777">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="goldCombo" layoutX="478.0" layoutY="126.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="19.0" prefWidth="201.0" promptText="ذهب جديد / ذهب مكسر" style="-fx-background-color: #fff; -fx-border-color: #777;" />
+            <AnchorPane fx:id="stonePane1" disable="true" layoutX="144.0" layoutY="32.0" prefHeight="25.0" prefWidth="293.0">
+               <children>
+                  <TextField fx:id="piecePrice" layoutX="6.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="19.0" prefWidth="190.0" promptText="ثمن القطعة" />
+                  <Label layoutX="198.0" layoutY="2.0" prefWidth="90.0" text="الثمن القطعة:" textFill="#777777">
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </AnchorPane>
          </children>
       </Pane>
-      <TableView fx:id="pieceTableView" layoutX="26.0" layoutY="207.0" nodeOrientation="RIGHT_TO_LEFT" onMouseClicked="#pieceSelected" prefHeight="366.0" prefWidth="1064.0" AnchorPane.leftAnchor="26.0">
+      <TableView fx:id="pieceTableView" nodeOrientation="RIGHT_TO_LEFT" onMouseClicked="#pieceSelected" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="26.0" AnchorPane.rightAnchor="55.0" AnchorPane.topAnchor="234.0">
         <columns>
           <TableColumn fx:id="pieceNumberTable" prefWidth="132.0" text="رقم القطعة" />
             <TableColumn fx:id="karaNumberTable" prefWidth="172.0" text="العيار" />
@@ -139,32 +161,55 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <TextField alignment="CENTER_RIGHT" blendMode="DARKEN" cache="true" layoutX="26.0" layoutY="179.0" prefHeight="25.0" prefWidth="237.0" promptText="بحث">
+      <TextField fx:id="search" alignment="CENTER_RIGHT" blendMode="DARKEN" cache="true" layoutX="26.0" layoutY="196.0" onKeyReleased="#search" prefHeight="25.0" prefWidth="237.0" promptText="بحث" AnchorPane.leftAnchor="26.0">
          <padding>
             <Insets bottom="3.0" left="10.0" right="10.0" top="3.0" />
          </padding>
       </TextField>
-      <FontAwesomeIconView fill="#888888" glyphName="SEARCH" layoutX="31.0" layoutY="198.0" opacity="0.5" size="20" smooth="false" />
-      <TabPane layoutX="1.0" layoutY="-1.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="173.0" prefWidth="308.0" rotateGraphic="true" tabClosingPolicy="UNAVAILABLE">
+      <FontAwesomeIconView fill="#888888" glyphName="SEARCH" layoutX="31.0" layoutY="215.0" opacity="0.5" size="20" smooth="false" AnchorPane.leftAnchor="31.0" />
+      <TabPane layoutX="1.0" layoutY="-1.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="173.0" prefWidth="308.0" rotateGraphic="true" tabClosingPolicy="UNAVAILABLE" AnchorPane.leftAnchor="1.0">
         <tabs>
           <Tab text="صورة">
                <content>
-                  <ImageView fx:id="imagePiece" fitHeight="136.0" fitWidth="324.0" pickOnBounds="true" preserveRatio="true" style="-fx-border-color: #777;" />
+                  <ImageView fx:id="imagePiece" fitHeight="136.0" fitWidth="307.0" onMouseClicked="#zoomIn" pickOnBounds="true" preserveRatio="true" style="-fx-border-color: #777;">
+                     <image>
+                        <Image url="@../img/logo.png" />
+                     </image></ImageView>
                </content>
                <graphic>
                   <FontAwesomeIconView fill="#333333" glyphName="IMAGE" size="20" />
                </graphic>
             </Tab>
-          <Tab text="BARCODE">
+            <Tab text="BARCODE">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fx:id="imageCodeBar" fitHeight="138.0" fitWidth="308.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" style="-fx-border-color: #777;">
+                           <image>
+                              <Image url="@../img/codebar.png" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="codebarlabel" alignment="CENTER" contentDisplay="CENTER" layoutX="8.0" layoutY="101.0" prefHeight="29.0" prefWidth="293.0" text="XXXXXX" textAlignment="CENTER">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font></Label>
+                        <Button layoutX="267.0" layoutY="103.0" mnemonicParsing="false" onAction="#printBarcode" style="-fx-background-color: TRANSPARENT;">
+                           <graphic>
+                              <FontAwesomeIconView fill="#1f12d3" glyphName="PRINT" size="25" />
+                           </graphic>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+              </content>
                <graphic>
                   <FontAwesomeIconView fill="#333333" glyphName="BARCODE" size="20" wrappingWidth="21.0" />
                </graphic>
             </Tab>
         </tabs>
       </TabPane>
-      <AnchorPane fx:id="paneAddGoldType" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: rgba(0,0,0,.2);" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane fx:id="paneAddGoldType" style="-fx-background-color: rgba(0,0,0,.2);" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <AnchorPane id="AnchorPane" layoutX="324.0" layoutY="89.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="454.0" prefWidth="496.0" style="-fx-background-color: #fff;">
+            <AnchorPane id="AnchorPane" layoutX="399.0" layoutY="116.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="454.0" prefWidth="496.0" style="-fx-background-color: #fff;">
                <children>
                   <Label layoutY="14.0" prefHeight="28.0" prefWidth="200.0" style="-fx-background-color: #579688; -fx-padding: 3px 15px;" text="اصناف" textAlignment="CENTER" textFill="WHITE">
                      <font>
@@ -218,6 +263,19 @@
                   </Button>
                </children>
             </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="paneZoom" nodeOrientation="RIGHT_TO_LEFT" style="-fx-background-color: rgba(0,0,0,.9);" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Button layoutX="547.0" layoutY="279.0" mnemonicParsing="false" onAction="#closeZoom" style="-fx-background-color: TRANSPARENT;" textFill="TRANSPARENT" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="10.0">
+               <graphic>
+                  <FontAwesomeIconView fill="#971212" glyphName="CLOSE" size="20" />
+               </graphic>
+            </Button>
+            <ImageView fx:id="imageZoom" fitHeight="530.0" layoutX="253.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/logo.png" />
+               </image></ImageView>
          </children>
       </AnchorPane>
    </children>  
